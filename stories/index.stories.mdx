@@ -1,0 +1,55 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+
+import '../poster-design-element.js';
+
+<Meta 
+  title="PosterDesignElement"
+  parameters={{
+    component: "poster-design-element",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# PosterDesignElement
+
+A component for...
+
+## Features:
+
+- a
+- b
+- ...
+
+## How to use
+
+### Installation
+
+```bash
+yarn add poster-design-element
+```
+
+```js
+import 'poster-design-element/poster-design-element.js';
+```
+
+<Preview withToolbar>
+  <Story name="Simple">
+    {html`
+      <poster-design-element></poster-design-element>
+    `}
+  </Story>
+</Preview>
+
+## API
+
+<Props of="poster-design-element" />
+
+## Variations
+
+###### Custom Title
+
+<Story name="Custom Title">
+  {html`
+    <poster-design-element .title=${'Hello World'}></poster-design-element>
+  `}
+</Story>

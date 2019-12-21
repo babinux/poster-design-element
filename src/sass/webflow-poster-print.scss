@@ -1,0 +1,64 @@
+// Poster Rendering Style for print ===================================================
+body.print {
+	.print#poster {
+		width: 27in;
+		height: 36in;
+		padding: 12rem 9.5rem;
+		box-shadow: none;
+
+		.border-grid {
+
+			.poster-label {
+				#posterTitle {
+					// font-size: 3.4rem;
+					font-size: 7rem;
+
+				}
+
+				#posterSubtitle {
+					font-size: 3.3rem;
+                    margin-bottom: 3.2rem;
+                    white-space: pre-wrap !important;
+				}
+
+				#posterCoordinates {
+					font-size: 2.5rem;
+					line-height: 170%;
+				}
+
+				#posterDate {
+					font-size: 2.5rem;
+					margin-bottom: 3.5rem;
+				}
+			}
+
+			.circle-wrap {
+
+				circle-wrapper-starmap-container {
+					.poster-star-map {}
+				}
+
+				.circle-wrapper-border {}
+
+				.circle-wrapper-quadrent {
+
+					.poster-quadrent-black {}
+
+					.poster-quadrent-white {}
+
+					.poster-quadrent-placeholder {}
+
+					.poster-quadrent-calendar-astro-black {}
+
+					.poster-quadrent-calendar-astro-white {}
+
+					.poster-quadrent-calendar-black {}
+
+					.poster-quadrent-calendar-white {}
+				}
+			}
+		}
+	}
+}
+
+// <> Poster Rendering Style for print ===================================================
