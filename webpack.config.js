@@ -1,8 +1,9 @@
 const path = require('path');
-const {
-  createDefaultConfig
-} = require('@open-wc/building-webpack');
 const WebpackIndexHTMLPlugin = require('@open-wc/webpack-index-html-plugin');
+
+// const {
+//   createDefaultConfig
+// } = require('@open-wc/building-webpack');
 
 // if you need to support IE11 use "modern-and-legacy-config" instead.
 // const { createCompatibilityConfig } = require('@open-wc/building-webpack');
@@ -50,12 +51,7 @@ module.exports = {
     new WebpackIndexHTMLPlugin({
       minify: false,
 
-      template: ({
-        assets,
-        entries,
-        legacyEntries,
-        variation
-      }) => `
+      template: () => `
         <html>
           <head>
             <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed|KoHo|Kodchasan:400,500,600|Nova+Slim|Rationale|Satisfy&display=swap" rel="stylesheet">
