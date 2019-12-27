@@ -7,23 +7,33 @@
       background: #fafafa;
     }
   </style>
+
+    <script type="module" src='/node_modules/planet-clock-element/dist/index.js'></script>
+
 </head>
 <body>
   <div id="demo"></div>
 
-  <script type="module">
+
+<planet-clock-element id="clock" color="green" >
+  <noscript>
+    Could not render the custom element. Check that JavaScript is enabled.
+  </noscript>
+</planet-clock-element>
+
+  <!-- <script type="module">
     import { html, render } from 'lit-html';
     import '../poster-design-element.js';
 
     const title = 'Hello owc World!';
     render(
       html`
-        <poster-design-element .title=${title}>
+        <poster-design-element color="green">
           some more light-dom
         </poster-design-element>
       `,
       document.querySelector('#demo')
     );
-  </script>
+  </script> -->
 </body>
 </html>

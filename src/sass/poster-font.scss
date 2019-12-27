@@ -1,0 +1,209 @@
+
+
+// font-family: 'Satisfy', cursive;
+// font-family: 'Rationale', sans-serif;
+// font-family: 'Nova Slim', cursive;
+// font-family: 'Kodchasan', sans-serif;
+// font-family: 'KoHo', sans-serif;
+// font-family: 'Barlow Semi Condensed', sans-serif;
+
+
+
+/* vietnamese */
+@font-face {
+  font-family: 'Barlow Semi Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Barlow Semi Condensed Regular'), local('BarlowSemiCondensed-Regular'), url(https://fonts.gstatic.com/s/barlowsemicondensed/v5/wlpvgxjLBV1hqnzfr-F8sEYMB0Yybp0mudRXd4qqKkkog6SP.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Barlow Semi Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Barlow Semi Condensed Regular'), local('BarlowSemiCondensed-Regular'), url(https://fonts.gstatic.com/s/barlowsemicondensed/v5/wlpvgxjLBV1hqnzfr-F8sEYMB0Yybp0mudRXdoqqKkkog6SP.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Barlow Semi Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Barlow Semi Condensed Regular'), local('BarlowSemiCondensed-Regular'), url(https://fonts.gstatic.com/s/barlowsemicondensed/v5/wlpvgxjLBV1hqnzfr-F8sEYMB0Yybp0mudRXeIqqKkkogw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* thai */
+@font-face {
+  font-family: 'KoHo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('KoHo Regular'), local('KoHo-Regular'), url(https://fonts.gstatic.com/s/koho/v3/K2F-fZ5fmddNNjoUfbTRKoqYBg.woff2) format('woff2');
+  unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'KoHo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('KoHo Regular'), local('KoHo-Regular'), url(https://fonts.gstatic.com/s/koho/v3/K2F-fZ5fmddNNiEUfbTRKoqYBg.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'KoHo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('KoHo Regular'), local('KoHo-Regular'), url(https://fonts.gstatic.com/s/koho/v3/K2F-fZ5fmddNNiAUfbTRKoqYBg.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'KoHo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('KoHo Regular'), local('KoHo-Regular'), url(https://fonts.gstatic.com/s/koho/v3/K2F-fZ5fmddNNi4UfbTRKoo.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* thai */
+@font-face {
+  font-family: 'Kodchasan';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Kodchasan Regular'), local('Kodchasan-Regular'), url(https://fonts.gstatic.com/s/kodchasan/v3/1cXxaUPOAJv9sG4I-DJWnHGFq8Kk1doH.woff2) format('woff2');
+  unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Kodchasan';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Kodchasan Regular'), local('Kodchasan-Regular'), url(https://fonts.gstatic.com/s/kodchasan/v3/1cXxaUPOAJv9sG4I-DJWh3GFq8Kk1doH.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Kodchasan';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Kodchasan Regular'), local('Kodchasan-Regular'), url(https://fonts.gstatic.com/s/kodchasan/v3/1cXxaUPOAJv9sG4I-DJWhnGFq8Kk1doH.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Kodchasan';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Kodchasan Regular'), local('Kodchasan-Regular'), url(https://fonts.gstatic.com/s/kodchasan/v3/1cXxaUPOAJv9sG4I-DJWiHGFq8Kk1Q.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* thai */
+@font-face {
+  font-family: 'Kodchasan';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Kodchasan Medium'), local('Kodchasan-Medium'), url(https://fonts.gstatic.com/s/kodchasan/v3/1cX0aUPOAJv9sG4I-DJee1KQkuCp_-AOoagN.woff2) format('woff2');
+  unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Kodchasan';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Kodchasan Medium'), local('Kodchasan-Medium'), url(https://fonts.gstatic.com/s/kodchasan/v3/1cX0aUPOAJv9sG4I-DJee1KQieCp_-AOoagN.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Kodchasan';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Kodchasan Medium'), local('Kodchasan-Medium'), url(https://fonts.gstatic.com/s/kodchasan/v3/1cX0aUPOAJv9sG4I-DJee1KQiOCp_-AOoagN.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Kodchasan';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Kodchasan Medium'), local('Kodchasan-Medium'), url(https://fonts.gstatic.com/s/kodchasan/v3/1cX0aUPOAJv9sG4I-DJee1KQhuCp_-AOoQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* thai */
+@font-face {
+  font-family: 'Kodchasan';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Kodchasan SemiBold'), local('Kodchasan-SemiBold'), url(https://fonts.gstatic.com/s/kodchasan/v3/1cX0aUPOAJv9sG4I-DJeV1WQkuCp_-AOoagN.woff2) format('woff2');
+  unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Kodchasan';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Kodchasan SemiBold'), local('Kodchasan-SemiBold'), url(https://fonts.gstatic.com/s/kodchasan/v3/1cX0aUPOAJv9sG4I-DJeV1WQieCp_-AOoagN.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Kodchasan';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Kodchasan SemiBold'), local('Kodchasan-SemiBold'), url(https://fonts.gstatic.com/s/kodchasan/v3/1cX0aUPOAJv9sG4I-DJeV1WQiOCp_-AOoagN.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Kodchasan';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Kodchasan SemiBold'), local('Kodchasan-SemiBold'), url(https://fonts.gstatic.com/s/kodchasan/v3/1cX0aUPOAJv9sG4I-DJeV1WQhuCp_-AOoQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: 'Nova Slim';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Nova Slim'), local('NovaSlim'), url(https://fonts.gstatic.com/s/novaslim/v11/Z9XUDmZNQAuem8jyZcnOz8mJvLuL9A.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: 'Rationale';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Rationale'), local('Rationale-Regular'), url(https://fonts.gstatic.com/s/rationale/v11/9XUnlJ92n0_JFxHIfHcccVtN7rOmZg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: 'Satisfy';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Satisfy Regular'), local('Satisfy-Regular'), url(https://fonts.gstatic.com/s/satisfy/v10/rP2Hp2yn6lkG50LoCZOIHTWEBlw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}

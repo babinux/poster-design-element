@@ -1,7 +1,11 @@
-@use 'sass/webflow-UI-custom-code';
-@use 'sass/webflow-poster-theme';
-@use 'sass/webflow-poster-print';
-@use 'sass/webflow-misc';
 
-// @use 'sass/';
-// @use 'sass/';
+
+// @import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed|KoHo|Kodchasan:400,500,600|Nova+Slim|Rationale|Satisfy&display=swap');
+
+@import './sass/poster-font';
+
+@import './sass/webflow-export';
+@import './sass/UI-custom-code';
+@import './sass/poster-theme';
+@import './sass/poster-print';
+@import './sass/misc';
