@@ -47,38 +47,38 @@
 
         .circle-wrapper-quadrent {
           .poster-quadrent {
-            &--black {
-              @extend .poster-quadrent;
-            }
-            &--white {
-              @extend .poster-quadrent;
-            }
+            // &--black {
+            //   @extend .poster-quadrent;
+            // }
+            // &--white {
+            //   @extend .poster-quadrent;
+            // }
           }
 
           .poster-quadrent-placeholder {
           }
 
-          .poster-quadrent-calendar-astro {
-            display: block;
-            width: 100%;
-            // position: static;
-            // left: 0;
-            // top: 0;
-            // right: 0;
-            // bottom: 0;
-            // z-index: 99;
-            // height: 100%;
-            // max-width: none;
-            // margin-right: 0;
-            // margin-left: 0;
-            &--black {
-              @extend .poster-quadrent-calendar-astro;
-              display: none;
-            }
-            &--white {
-              @extend .poster-quadrent-calendar-astro;
-            }
-          }
+          // .poster-quadrent-calendar-astro {
+          //   display: block;
+          //   width: 100%;
+          //   // position: static;
+          //   // left: 0;
+          //   // top: 0;
+          //   // right: 0;
+          //   // bottom: 0;
+          //   // z-index: 99;
+          //   // height: 100%;
+          //   // max-width: none;
+          //   // margin-right: 0;
+          //   // margin-left: 0;
+          //   &--black {
+          //     @extend .poster-quadrent-calendar-astro;
+          //     display: none;
+          //   }
+          //   &--white {
+          //     @extend .poster-quadrent-calendar-astro;
+          //   }
+          // }
 
           .poster-quadrent-calendar-black {
           }

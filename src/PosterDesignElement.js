@@ -1,17 +1,22 @@
-// const circle = require('./circle.js');
-
-// require('planet-clock-element.js');
-import '../node_modules/planet-clock-element/dist/index.js';
-
-
-
-
 import {
   html,
   LitElement
 } from 'lit-element';
 
+import '../node_modules/planet-clock-element/dist/index.js';
+
 import customStyle from './style.scss';
+
+const posterDesigns = ['', 'cosmic-latte', 'deep-space-blue', 'navy', 'cosmic-love', 'blackhole', 'supernova'];
+const posterDarkOrbits = ['2', '4'];
+const options = {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+};
+
+const url = new URL(document.location);
+const posterParams = new URLSearchParams(url.search);
 
 // const sheet = new CSSStyleSheet();
 
@@ -26,78 +31,114 @@ import customStyle from './style.scss';
 
 
 export class PosterDesignElement extends LitElement {
-  static nice() {
-    return "nice";
 
-  }
   static get styles() {
     console.log(customStyle);
-
     return [customStyle];
-
   }
 
   static get properties() {
     return {
-      title: {
-        type: String
+      posterDesign: {
+        type: String,
+        reflect: true
+      },
+      posterDate: {
+        type: String,
+        reflect: true,
+        converter(value) {
+          return new Date(value);
+        }
+      },
+      posterFormatedDate: {
+        type: String,
+        reflect: true,
+        converter() {
+          return new Date(this.posterDate).toLocaleDateString('en-EN', options);
+        }
+      },
+      posterTitle: {
+        type: String,
+        reflect: true
+      },
+      posterCoordinates: {
+        type: String,
+        reflect: true
+      },
+      posterLocation: {
+        type: String,
+        reflect: true
+      },
+      color: {
+        type: String,
+        reflect: true
       }
     };
   }
 
   constructor() {
     super();
-    this.title = 'Hey there';
-    this.counter = 5;
     // this.shadowRoot.adoptedStyleSheets = [sheet];
-
+    this.updatePropFromUrl();
   }
 
-  __increment() {
-    this.counter += 1;
+  firstUpdated() {
+    // posterParams.set("color", this.color);
+    posterParams.set("posterDesign", this.posterDesign);
+    posterParams.set("posterDate", `${this.posterDate.getFullYear()}-${this.posterDate.toLocaleString('default', { month: 'short' })}-${this.posterDate.getDate()}`);
+    posterParams.set("posterTitle", this.posterTitle);
+    posterParams.set("posterLocation", this.posterLocation);
+    posterParams.set("posterCoordinates", this.posterCoordinates);
+
+    window.history.replaceState({}, "Updating poster Design", `?${posterParams.toString()}`)
   }
 
+  attributeChangedCallback(attr, oldVal, newVal) {
+    this.updatePropFromUrl();
+  }
 
+  updatePropFromUrl() {
+    this.posterTitle = posterParams.has("posterTitle") ? posterParams.get("posterTitle") : 'Name Of Someone You Love';
+    this.posterLocation = posterParams.has("posterLocation") ? posterParams.get("posterLocation") : 'World';
+    this.posterCoordinates = posterParams.has("posterCoordinates") ? posterParams.get("posterCoordinates") : '47.90444°N -116.74111°W';
+    this.posterDesign = posterParams.has("posterDesign") ? posterParams.get("posterDesign") : '1';
+    this.color = posterParams.has("color") ? posterParams.get("color") : posterDarkOrbits.includes(this.posterDesign) ? 'black' : 'white';
+    this.posterDate = posterParams.has("posterDate") ? new Date(posterParams.get("posterDate")) : new Date();
+    this.posterFormatedDate = this.posterDate.toLocaleDateString('en-EN', options);
+
+  }
 
   render() {
 
-
     return html `
-     
-      <noscript>
-        Could not render the custom element. Check that JavaScript is enabled.
-      </noscript>
-
+    
       <div id="poster_box" class="poster-frame-preview print" >
         <div class="poster-frame-inner-container">
-          <div id="poster" class="poster w-node-8ec960d784d5-60d784d5 navy print" data-ix="new-interaction">
+          <div id="poster" class="poster print ${posterDesigns[this.posterDesign]}" >
             <div class="border-grid">
-              <div id="w-node-8ec960d784d7-60d784d5" class="circle-wrap">
+              <div id="" class="circle-wrap">
                 <div id="circle-wrapper-quadrent" class="circle-wrapper-quadrent">
-                  <img  class="poster-quadrent-calendar-astro--black" src="https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5d165ecedb0851e61967da18_new%20quadrant.png">
+                  <img class="poster-quadrent-calendar-astro--black" src="https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5d165ecedb0851e61967da18_new%20quadrant.png">
                   <img class="poster-quadrent-calendar-astro--white" src="https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5d165ecedb0851771d67da17_new%20quadrant%20white.png" >
                   
                   <div class="svghtml-embed w-embed">
-
                   
-                    <planet-clock-element color="white"  ></planet-clock-element>
+                    <planet-clock-element color="${this.color}" .posterDate="${this.posterDate}"  ></planet-clock-element>
                   
                   </div>
                 </div>
               </div>
               <div id="" class="poster-label">
-                <h1 id="posterTitle" class="poster-title">Name Of Someone You Love<br></h1>
+                <h1 id="posterTitle" class="poster-title">${this.posterTitle}<br></h1>
                 <div id="posterSubtitle" class="poster-subtitle"> </div>
-                <p id="posterCoordinates" class="poster-coordinates">Coordinates, 47.90444°N -116.74111°W<br></p>
-                <p id="posterDate" class="poster-date">December 19, 2019</p>
+                <p id="posterCoordinates" class="poster-coordinates">${this.posterLocation}, ${this.posterCoordinates}<br></p>
+                <p id="posterDate" class="poster-date">${this.posterFormatedDate}</p>
               </div>
             </div>
           </div>
           <div class="inner-shadow"></div>
         </div>
       </div>
-
-
     `;
   }
 }
