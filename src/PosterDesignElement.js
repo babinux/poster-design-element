@@ -3,7 +3,7 @@ import {
   LitElement
 } from 'lit-element';
 
-import '../node_modules/planet-clock-element/dist/index.js';
+import '../node_modules/planet-clock-element/index.js';
 
 import customStyle from './style.scss';
 
@@ -79,10 +79,14 @@ export class PosterDesignElement extends LitElement {
   constructor() {
     super();
     // this.shadowRoot.adoptedStyleSheets = [sheet];
-    this.updatePropFromUrl();
+    this.updatePropsFromUrl();
   }
 
   firstUpdated() {
+    this.updateUrlFromProps();
+  }
+
+  updateUrlFromProps() {
     // posterParams.set("color", this.color);
     posterParams.set("posterDesign", this.posterDesign);
     posterParams.set("posterDate", `${this.posterDate.getFullYear()}-${this.posterDate.toLocaleString('default', { month: 'short' })}-${this.posterDate.getDate()}`);
@@ -94,18 +98,19 @@ export class PosterDesignElement extends LitElement {
   }
 
   attributeChangedCallback(attr, oldVal, newVal) {
-    this.updatePropFromUrl();
+    super.attributeChangedCallback(attr, oldVal, newVal);
+
+    this.updateUrlFromProps();
   }
 
-  updatePropFromUrl() {
+  updatePropsFromUrl() {
     this.posterTitle = posterParams.has("posterTitle") ? posterParams.get("posterTitle") : 'Name Of Someone You Love';
     this.posterLocation = posterParams.has("posterLocation") ? posterParams.get("posterLocation") : 'World';
     this.posterCoordinates = posterParams.has("posterCoordinates") ? posterParams.get("posterCoordinates") : '47.90444°N -116.74111°W';
     this.posterDesign = posterParams.has("posterDesign") ? posterParams.get("posterDesign") : '1';
     this.color = posterParams.has("color") ? posterParams.get("color") : posterDarkOrbits.includes(this.posterDesign) ? 'black' : 'white';
-    this.posterDate = posterParams.has("posterDate") ? new Date(posterParams.get("posterDate")) : new Date();
+    this.posterDate = posterParams.has("posterDate") ? new Date(isNaN(posterParams.get("posterDate")) ? posterParams.get("posterDate") : new Date()) : new Date();
     this.posterFormatedDate = this.posterDate.toLocaleDateString('en-EN', options);
-
   }
 
   render() {
