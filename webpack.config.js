@@ -31,7 +31,7 @@ module.exports = {
     contentBase: './dist',
   },
   performance: {
-    // hints: 'warning'
+    hints: 'warning'
   },
   // optimization: {
   //   concatenateModules: true,
@@ -53,7 +53,7 @@ module.exports = {
   //     }),
   //   ],
   //   splitChunks: {
-  //     chunks: 'all'
+  //     // chunks: 'all'
   //   },
   // },
   module: {
@@ -95,7 +95,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new WebpackIndexHTMLPlugin({
-      minify: false,
+      minify: true,
 
       template: () => `
         <html>
@@ -104,7 +104,7 @@ module.exports = {
 
           </head>
           <body>
-              <poster-design-element heading="Hello world!"></poster-design-element>
+              <poster-design-element></poster-design-element>
           </body>
         </html>
       `,
