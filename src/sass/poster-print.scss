@@ -2,15 +2,14 @@
   height: 100%;
   width: 100%;
 
+  transform: scale(0.3);
+  transform-origin: top left;
+
   #poster {
     width: 27in;
     height: 36in;
 
-    transform: scale(0.3);
-    transform-origin: top left;
-
     padding: 12rem 9.5rem;
-    box-shadow: none;
 
     .poster {
       &-grid {
