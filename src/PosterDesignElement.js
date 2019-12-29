@@ -3,38 +3,33 @@ import {
   LitElement
 } from 'lit-element';
 
+// Style Import : Main/Current Component Style
+import componentStyle from './style.scss';
+
+// Element Import : Planet Clock, required for poster design (style included)
 import '../node_modules/planet-clock-element/index.js';
 
-import customStyle from './style.scss';
-
+// List : All the designs for Poster
 const posterDesigns = ['', 'cosmic-latte', 'deep-space-blue', 'navy', 'cosmic-love', 'blackhole', 'supernova'];
+
+// Settings : color of the planets orbits based on the poster's background
 const posterDarkOrbits = ['2', '4'];
-const options = {
+
+// Settings : Human readable date
+const posterDateSettings = {
   year: 'numeric',
   month: 'long',
   day: 'numeric'
 };
 
+// Getter: URL and Params for use later
 const url = new URL(document.location);
 const posterParams = new URLSearchParams(url.search);
-
-// const sheet = new CSSStyleSheet();
-
-// // set its contents by referencing a file
-// sheet.replace('@import url("./src/style.css")')
-//   .then(sheet => {
-//     console.log('Styles loaded successfully');
-//   })
-//   .catch(err => {
-//     console.error('Failed to load:', err);
-//   });
-
 
 export class PosterDesignElement extends LitElement {
 
   static get styles() {
-    console.log(customStyle);
-    return [customStyle];
+    return [componentStyle];
   }
 
   static get properties() {
@@ -54,7 +49,7 @@ export class PosterDesignElement extends LitElement {
         type: String,
         reflect: true,
         converter() {
-          return new Date(this.posterDate).toLocaleDateString('en-EN', options);
+          return new Date(this.posterDate).toLocaleDateString('en-EN', posterDateSettings);
         }
       },
       posterPrint: {
@@ -86,12 +81,10 @@ export class PosterDesignElement extends LitElement {
 
   constructor() {
     super();
-    // this.shadowRoot.adoptedStyleSheets = [sheet];
     this.updatePropsFromUrl();
   }
 
   firstUpdated() {
-
     this.updateUrlFromProps();
   }
 
@@ -123,7 +116,7 @@ export class PosterDesignElement extends LitElement {
     this.posterDesign = posterParams.has("posterDesign") ? posterParams.get("posterDesign") : '1';
     this.color = posterParams.has("color") ? posterParams.get("color") : posterDarkOrbits.includes(this.posterDesign) ? 'black' : 'white';
     this.posterDate = posterParams.has("posterDate") ? new Date(isNaN(posterParams.get("posterDate")) ? posterParams.get("posterDate") : new Date()) : new Date();
-    this.posterFormatedDate = this.posterDate.toLocaleDateString('en-EN', options);
+    this.posterFormatedDate = this.posterDate.toLocaleDateString('en-EN', posterDateSettings);
   }
 
   render() {
@@ -150,9 +143,9 @@ export class PosterDesignElement extends LitElement {
                   <img class="poster-quadrent-calendar-astro--black" src="https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5d165ecedb0851e61967da18_new%20quadrant.png">
                   <img class="poster-quadrent-calendar-astro--white" src="https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5d165ecedb0851771d67da17_new%20quadrant%20white.png" >
                   
-                  <div class="svghtml-embed w-embed">
+                  <div class="svghtml-embed">
                   
-                    <planet-clock-element color="${this.color}" .posterDate="${this.posterDate}"  ></planet-clock-element>
+                    <planet-clock-element color="${this.color}" .posterDate="${this.posterDate}"></planet-clock-element>
                   
                   </div>
                 </div>
