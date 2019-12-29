@@ -27,96 +27,99 @@
     --orbit-color: #{$circle-wrap-border-color};
   }
 
-  .border-grid {
-    border: $border-grid-color;
-    padding: $border-grid-padding;
+  .poster {
+    &-grid {
+      border: $border-grid-color;
+      padding: $border-grid-padding;
 
-    .circle {
-      &-wrap {
-        background-image: $circle-wrap-background-image;
-        background-color: $circle-wrap-background-color;
-        border-color: $circle-wrap-border-color;
-        border-width: $circle-wrap-border-width;
+      .clock {
+        &-design-wrapper {
+          background-image: $circle-wrap-background-image;
+          background-color: $circle-wrap-background-color;
+          border-color: $circle-wrap-border-color;
+          border-width: $circle-wrap-border-width;
 
-        .circle-wrapper {
-          &-starmap-container {
-            .poster-star-map {
-            }
-          }
-
-          &-border {
-            border-color: $circle-wrapper-border-color;
-            border-width: $circle-wrapper-border-width;
-          }
-
-          &-quadrent {
-            margin: -4px;
-
-            .poster-quadrent {
-              &-white {
-                // display: $poster-quadrent-white;
-                display: none;
-              }
-
-              &-black {
-                // display: $poster-quadrent-black;
-                display: none;
-              }
-
-              &-calendar-astro {
-                display: block;
-                width: 100%;
-                &--black {
-                  @extend .poster-quadrent-calendar-astro;
-                  display: $poster-quadrent-black;
-                }
-                &--white {
-                  @extend .poster-quadrent-calendar-astro;
-                  display: $poster-quadrent-white;
-                }
-              }
-            }
-          }
+          
         }
       }
-    }
 
-    .poster-label {
-      color: $poster-label-color;
-      transition: all 0.1s ease;
+      .circle-wrapper {
+            &-starmap-container {
+              .poster-star-map {
+              }
+            }
 
-      /* design available in webflow-poster-print.css */
-      #posterTitle {
-        margin: 0;
-        font-family: Satisfy, sans-serif;
-        font-size: 2rem;
-        line-height: 110%;
-        font-weight: 400;
+            &-border {
+              border-color: $circle-wrapper-border-color;
+              border-width: $circle-wrapper-border-width;
+            }
+
+            &-quadrent {
+              margin: -4px;
+
+              .poster-quadrent {
+                &-white {
+                  // display: $poster-quadrent-white;
+                  display: none;
+                }
+
+                &-black {
+                  // display: $poster-quadrent-black;
+                  display: none;
+                }
+
+                &-calendar-astro {
+                  display: block;
+                  width: 100%;
+                  &--black {
+                    @extend .poster-quadrent-calendar-astro;
+                    display: $poster-quadrent-black;
+                  }
+                  &--white {
+                    @extend .poster-quadrent-calendar-astro;
+                    display: $poster-quadrent-white;
+                  }
+                }
+              }
+            }
+          }
+      .poster-label {
+        color: $poster-label-color;
+        transition: all 0.1s ease;
+
+        /* design available in webflow-poster-print.css */
+        #posterTitle {
+          margin: 0;
+          font-family: Satisfy, sans-serif;
+          font-size: 2rem;
+          line-height: 110%;
+          font-weight: 400;
+        }
+
+        #posterSubtitle {
+          margin: 0 0 0.6rem;
+          font-family: 'Barlow Semi Condensed', sans-serif;
+          font-size: 0.6rem;
+          line-height: 100%;
+          font-weight: 500;
+        }
+
+        #posterCoordinates {
+          font-family: 'Barlow Semi Condensed', sans-serif;
+          font-size: 0.6rem;
+          line-height: 110%;
+          margin: 0;
+        }
+
+        #posterDate {
+          font-family: 'Barlow Semi Condensed', sans-serif;
+          font-size: 0.6rem;
+          line-height: 110%;
+          margin-bottom: 1rem;
+        }
+
+        /* <> design available in webflow-poster-print.css */
       }
-
-      #posterSubtitle {
-        margin: 0 0 0.6rem;
-        font-family: 'Barlow Semi Condensed', sans-serif;
-        font-size: 0.6rem;
-        line-height: 100%;
-        font-weight: 500;
-      }
-
-      #posterCoordinates {
-        font-family: 'Barlow Semi Condensed', sans-serif;
-        font-size: 0.6rem;
-        line-height: 110%;
-        margin: 0;
-      }
-
-      #posterDate {
-        font-family: 'Barlow Semi Condensed', sans-serif;
-        font-size: 0.6rem;
-        line-height: 110%;
-        margin-bottom: 1rem;
-      }
-
-      /* <> design available in webflow-poster-print.css */
     }
   }
 }
@@ -236,34 +239,34 @@ $supernova: (
     url('https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5ca538588ad431544152f501_6.png'),
 );
 
-#poster {
-  &.cosmic-latte {
+#poster-container {
+  .cosmic-latte {
     @include poster-gen($cosmic-latte...);
   }
 
-  &.navy {
+  .navy {
     @include poster-gen($navy...);
   }
 
-  &.cosmic-love {
+  .cosmic-love {
     @include poster-gen($cosmic-love...);
   }
 
-  &.blackhole {
+  .blackhole {
     @include poster-gen($blackhole...);
   }
 
-  &.supernova {
+  .supernova {
     @include poster-gen($supernova...);
   }
 
-  &.deep-space-blue {
+  .deep-space-blue {
     @include poster-gen($deep-space-blue...);
   }
 }
 
-#poster {
-  &.planets-black {
+#poster-container {
+  .planets-black {
     background-image: radial-gradient(ellipse farthest-corner at 50% 50%, #1d2e43 0, #0a1720 100%);
 
     .poster-quadrent {
@@ -280,12 +283,12 @@ $supernova: (
       }
     }
 
-    .border-grid {
+    .poster-grid {
       border: none;
       padding: 0;
     }
 
-    .circle-wrap {
+    .clock-design-wrapper {
       border-color: #0f1d26;
       background-image: radial-gradient(ellipse farthest-corner at 70% 40%, #f9f5f0 0, #f6e5ce 50%);
     }
@@ -299,7 +302,7 @@ $supernova: (
     }
   }
 
-  &.planets-white {
+  .planets-white {
     background-image: radial-gradient(
       circle farthest-corner at 50% 50%,
       #faf8f4,
@@ -320,11 +323,11 @@ $supernova: (
       }
     }
 
-    .border-grid {
+    .poster-grid {
       border: none;
     }
 
-    .circle-wrap {
+    .clock-design-wrapper {
       background-image: radial-gradient(
         circle farthest-corner at 50% 50%,
         #243746,
@@ -341,7 +344,7 @@ $supernova: (
     }
   }
 
-  &.planets-white-calendar {
+  .planets-white-calendar {
     background-image: radial-gradient(
       circle farthest-corner at 50% 50%,
       #faf8f4,
@@ -370,12 +373,12 @@ $supernova: (
       margin: 80px;
     }
 
-    .border-grid {
+    .poster-grid {
       border: none;
       padding: 0;
     }
 
-    .circle-wrap {
+    .clock-design-wrapper {
       border-color: #0f1d26;
       background-image: radial-gradient(
         circle farthest-corner at 50% 50%,
@@ -393,7 +396,7 @@ $supernova: (
     }
   }
 
-  &.planets-black-calendar {
+  .planets-black-calendar {
     background-image: radial-gradient(ellipse farthest-corner at 50% 50%, #1d2e43 0, #0a1720 100%);
 
     .poster-quadrent {
@@ -418,12 +421,12 @@ $supernova: (
       margin: 80px;
     }
 
-    .border-grid {
+    .poster-grid {
       border: none;
       padding: 0;
     }
 
-    .circle-wrap {
+    .clock-design-wrapper {
       border-color: #0f1d26;
       background-image: radial-gradient(ellipse farthest-corner at 70% 40%, #f9f5f0 0, #f6e5ce 50%);
     }

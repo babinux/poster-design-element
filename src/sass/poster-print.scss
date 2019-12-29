@@ -1,89 +1,38 @@
-// Poster Rendering Style for print ===================================================
-#poster_box {
-  .print#poster {
+#poster-container {
+  height: 100%;
+  width: 100%;
+
+  #poster {
     width: 27in;
     height: 36in;
 
-    width: 27in;
-    height: 36in;
+    transform: scale(0.3);
+    transform-origin: top left;
+
     padding: 12rem 9.5rem;
     box-shadow: none;
 
-    transform: scale(0.58);
-    transform-origin: top left;
-
-    .border-grid {
-      .poster-label {
-        #posterTitle {
-          // font-size: 3.4rem;
-          font-size: 7rem;
-        }
-
-        #posterSubtitle {
-          font-size: 3.3rem;
-          margin-bottom: 3.2rem;
-          white-space: pre-wrap !important;
-        }
-
-        #posterCoordinates {
-          font-size: 2.5rem;
-          line-height: 170%;
-        }
-
-        #posterDate {
-          font-size: 2.5rem;
-          margin-bottom: 3.5rem;
-        }
-      }
-
-      .circle-wrap {
-        circle-wrapper-starmap-container {
-          .poster-star-map {
-          }
-        }
-
-        .circle-wrapper-border {
-        }
-
-        .circle-wrapper-quadrent {
-          .poster-quadrent {
-            // &--black {
-            //   @extend .poster-quadrent;
-            // }
-            // &--white {
-            //   @extend .poster-quadrent;
-            // }
+    .poster {
+      &-grid {
+        .poster-label {
+          #posterTitle {
+            font-size: 7rem;
           }
 
-          .poster-quadrent-placeholder {
+          #posterSubtitle {
+            font-size: 3.3rem;
+            margin-bottom: 3.2rem;
+            white-space: pre-wrap !important;
           }
 
-          // .poster-quadrent-calendar-astro {
-          //   display: block;
-          //   width: 100%;
-          //   // position: static;
-          //   // left: 0;
-          //   // top: 0;
-          //   // right: 0;
-          //   // bottom: 0;
-          //   // z-index: 99;
-          //   // height: 100%;
-          //   // max-width: none;
-          //   // margin-right: 0;
-          //   // margin-left: 0;
-          //   &--black {
-          //     @extend .poster-quadrent-calendar-astro;
-          //     display: none;
-          //   }
-          //   &--white {
-          //     @extend .poster-quadrent-calendar-astro;
-          //   }
-          // }
-
-          .poster-quadrent-calendar-black {
+          #posterCoordinates {
+            font-size: 2.5rem;
+            line-height: 170%;
           }
 
-          .poster-quadrent-calendar-white {
+          #posterDate {
+            font-size: 2.5rem;
+            margin-bottom: 3.5rem;
           }
         }
       }

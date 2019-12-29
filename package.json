@@ -53,9 +53,11 @@
     "lit-html": "^1.0.0",
     "lit-scss-loader": "^1.0.0",
     "planet-clock-element": "git+https://github.com/babinux/planet-clock-element.git",
+    "rasterizehtml": "^1.3.0",
     "sass-loader": "^8.0.0",
     "scss-loader": "0.0.1",
-    "terser-webpack-plugin": "^2.3.1"
+    "terser-webpack-plugin": "^2.3.1",
+    "url-to-screenshot": "^3.0.0"
   },
   "devDependencies": {
     "@open-wc/building-webpack": "^2.1.0",

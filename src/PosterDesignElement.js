@@ -117,11 +117,10 @@ export class PosterDesignElement extends LitElement {
 
     return html `
     
-      <div id="poster_box" class="poster-frame-preview print" >
-        <div class="poster-frame-inner-container">
-          <div id="poster" class="poster print ${posterDesigns[this.posterDesign]}" >
-            <div class="border-grid">
-              <div id="" class="circle-wrap">
+      <div id="poster-container">
+          <div id="poster" class="${posterDesigns[this.posterDesign]}" >
+            <div class="poster-grid">
+              <div id="" class="clock-design-wrapper">
                 <div id="circle-wrapper-quadrent" class="circle-wrapper-quadrent">
                   <img class="poster-quadrent-calendar-astro--black" src="https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5d165ecedb0851e61967da18_new%20quadrant.png">
                   <img class="poster-quadrent-calendar-astro--white" src="https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5d165ecedb0851771d67da17_new%20quadrant%20white.png" >
@@ -141,8 +140,6 @@ export class PosterDesignElement extends LitElement {
               </div>
             </div>
           </div>
-          <div class="inner-shadow"></div>
-        </div>
       </div>
     `;
   }

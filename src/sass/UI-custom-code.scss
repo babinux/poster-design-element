@@ -1,171 +1,143 @@
-// Poster Extra ===================================================
-body.print {
-	#code-block-for-printing {
-		display: flex;
-	}
+#poster {
+	
+  .poster-frame-preview {
+    transition: background 0.5s;
+    // transform: translate(0px, 0px) scale(0.2)!important;
+    padding: 160px;
+    border-radius: 15px;
+    border-width: 10px;
+    box-shadow: 5px 20px 50px -10px #00000080;
 
-	#poster-rendered-container {
-		&.print {
-			box-shadow: 0px 0px 10px 10px -5px black;
-			background-color: white;
-		}
-	}
-}
+    .inner-shadow {
+      border-radius: 15px;
+      border-width: 10px;
+      display: block;
+    }
+  }
 
-// <> Poster Extra ===================================================
-// Poster Designer App ===================================================
-#poster_box {
-	transform-origin: top left;
-	position: absolute;
-	height: auto;
-	width: auto;
-	margin-top: 0;
+  .page-no-inset-shadow {
+    .inner-shadow {
+      display: none;
+    }
 
-	&.print {
-		transform: none !important;
-	}
-}
+    .poster-frame-inner-container {
+      padding: 0;
+      box-shadow: 0px 10px 50px -25px #00000080;
+      border: none;
+      border-radius: 0;
+    }
+  }
 
-.print {
-	.poster-frame-preview {
-		transition: background 0.5s;
-		// transform: translate(0px, 0px) scale(0.2)!important;
-		padding: 160px;
-		border-radius: 15px;
-		border-width: 10px;
-		box-shadow: 5px 20px 50px -10px #00000080;
+  .display-poster-frame {
+    box-shadow: none;
+    padding: 0;
+    margin-top: 8px;
+    margin-left: 35px;
 
-		.inner-shadow {
-			border-radius: 15px;
-			border-width: 10px;
-			display: block;
-		}
-	}
-
-	.page-no-inset-shadow {
-		.inner-shadow {
-			display: none;
-		}
-
-		.poster-frame-inner-container {
-			padding: 0;
-			box-shadow: 0px 10px 50px -25px #00000080;
-			border: none;
-			border-radius: 0;
-		}
-	}
-
-	.display-poster-frame {
-		box-shadow: none;
-		padding: 0;
-		margin-top: 8px;
-		margin-left: 35px;
-
-		@media (max-width: 479px) {
-			box-shadow: none;
-			padding: 0;
-			margin-top: 8px;
-			margin-left: 20px;
-		}
-	}
+    @media (max-width: 479px) {
+      box-shadow: none;
+      padding: 0;
+      margin-top: 8px;
+      margin-left: 20px;
+    }
+  }
 }
 
 .container-frame {
-	height: 575px;
-	width: 100%;
-	max-width: 430px;
-	justify-self: center;
-	align-self: start;
-	position: relative;
-	display: block;
+  height: 575px;
+  width: 100%;
+  max-width: 430px;
+  justify-self: center;
+  align-self: start;
+  position: relative;
+  display: block;
 
-	@media (max-width: 479px) {
-		max-width: 220px;
-	}
+  @media (max-width: 479px) {
+    max-width: 220px;
+  }
 }
 
 #container {
-	position: absolute;
-	top: 0px;
-	left: -25px;
+  position: absolute;
+  top: 0px;
+  left: -25px;
 
-	@media (max-width: 479px) {
-		left: -20px;
-	}
+  @media (max-width: 479px) {
+    left: -20px;
+  }
 }
 
 #Poster-Frame-Design-Container {
-	transform-origin: top center;
+  transform-origin: top center;
 
-	#container {
-		top: 0px;
-		left: 0px;
-	}
+  #container {
+    top: 0px;
+    left: 0px;
+  }
 
-	#poster {
-		box-shadow: 0px 7px 10px -5px rgba(0, 0, 0, .7);
-	}
+  #poster {
+    box-shadow: 0px 7px 10px -5px rgba(0, 0, 0, 0.7);
+  }
 }
 
 .print-page-designer-container {
-	transform: translate(-95px, 0px) scale(0.61);
-	transform-origin: top center;
+  transform: translate(-95px, 0px) scale(0.61);
+  transform-origin: top center;
 
-	#Designer-App {
-		transform-origin: top center !important;
-		width: 480px;
-	}
+  #Designer-App {
+    transform-origin: top center !important;
+    width: 480px;
+  }
 }
 
 // <> Poster Designer App ===================================================
 // Designer App Inputs ====================================================
 .w-webflow-badge {
-	display: none !important;
+  display: none !important;
 }
 
 .buy-button {
-
-	&:disabled,
-	&[disabled],
-	&[disabled=disabled] {
-		background-color: grey;
-		cursor: not-allowed;
-	}
+  &:disabled,
+  &[disabled],
+  &[disabled='disabled'] {
+    background-color: grey;
+    cursor: not-allowed;
+  }
 }
 
 #Poster-Link {
-	word-break: break-all;
+  word-break: break-all;
 }
 
 .theme-selection-radio,
 .frame-selection-radio,
 .size-selection-radio {
-	input {
-		&[type="radio"]:checked+span {
-			border: 3px solid #4caf50 !important;
-		}
+  input {
+    &[type='radio']:checked + span {
+      border: 3px solid #4caf50 !important;
+    }
 
-		&.error+span {
-			border: 3px solid red;
-			border-radius: 5px;
-		}
-	}
+    &.error + span {
+      border: 3px solid red;
+      border-radius: 5px;
+    }
+  }
 }
 
 input,
 select,
 textarea {
-	&.error {
-		outline: none;
-		border-color: red;
-		border-width: 1px;
-		border-style: solid;
+  &.error {
+    outline: none;
+    border-color: red;
+    border-width: 1px;
+    border-style: solid;
 
-		&:valid {
-			border-style: auto;
-			border-color: 1px solid #cccccc;
-		}
-	}
+    &:valid {
+      border-style: auto;
+      border-color: 1px solid #cccccc;
+    }
+  }
 }
 
 // <> Designer App Inputs ====================================================
