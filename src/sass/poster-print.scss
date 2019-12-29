@@ -2,7 +2,7 @@
   height: 100%;
   width: 100%;
 
-  transform: scale(0.3);
+  transform: scale(0.2);
   transform-origin: top left;
 
   #poster {
@@ -16,27 +16,220 @@
         .poster-label {
           #posterTitle {
             font-size: 7rem;
+            margin-block-start: 0;
+            margin-block-end: 7rem;
+            font-family: Satisfy, sans-serif;
+            line-height: 110%;
+            font-weight: 400;
           }
 
           #posterSubtitle {
             font-size: 3.3rem;
-            margin-bottom: 3.2rem;
             white-space: pre-wrap !important;
+            margin-block-start: 0;
+            margin-block-end: 3.2rem;
+            font-family: 'Barlow Semi Condensed', sans-serif;
+            line-height: 100%;
+            font-weight: 500;
+            &:empty {
+              display: none;
+            }
           }
 
           #posterCoordinates {
-            font-size: 2.5rem;
-            line-height: 170%;
+            font-size: 3.5rem;
+            line-height: 130%;
+            margin-block-start: 0;
+            margin-block-end: 2rem;
+            font-family: 'Barlow Semi Condensed', sans-serif;
+            // font-size: 0.6rem;
+            // line-height: 110%;
+            // margin: 0;
+            &:empty {
+              display: none;
+            }
           }
 
           #posterDate {
-            font-size: 2.5rem;
-            margin-bottom: 3.5rem;
+            font-size: 3.5rem;
+            margin-block-start: 0;
+            margin-block-end: 3rem;
+            font-family: 'Barlow Semi Condensed', sans-serif;
+            // font-size: 0.6rem;
+            line-height: 110%;
+            // margin-bottom: 1rem;
+            &:empty {
+              display: none;
+            }
           }
         }
       }
     }
   }
 }
+
+
+#poster-container {
+  .planets-black {
+    background-image: radial-gradient(ellipse farthest-corner at 50% 50%, #1d2e43 0, #0a1720 100%);
+
+    .poster-quadrent {
+      &-white {
+        display: none;
+      }
+
+      &-calendar-black {
+        display: block !important;
+      }
+
+      &-black {
+        display: none;
+      }
+    }
+
+    .poster-grid {
+      border: none;
+      padding: 0;
+    }
+
+    .starry-design-wrapper {
+      border-color: #0f1d26;
+      background-image: radial-gradient(ellipse farthest-corner at 70% 40%, #f9f5f0 0, #f6e5ce 50%);
+    }
+
+    .starry-border {
+      border: none;
+    }
+
+    .poster-label {
+      color: #f6e5ce !important;
+    }
+  }
+
+  .planets-white {
+    background-image: radial-gradient(
+      circle farthest-corner at 50% 50%,
+      #faf8f4,
+      hsla(35.38461538461539, 66.1%, 88.43%, 1)
+    );
+
+    .poster-quadrent {
+      &-black {
+        display: none;
+      }
+
+      &-calendar-white {
+        display: block;
+      }
+
+      &-white {
+        display: none;
+      }
+    }
+
+    .poster-grid {
+      border: none;
+    }
+
+    .starry-design-wrapper {
+      background-image: radial-gradient(
+        circle farthest-corner at 50% 50%,
+        #243746,
+        hsla(215.2941176470588, 36.17%, 9.22%, 1)
+      );
+    }
+
+    .starry-border {
+      border: none;
+    }
+
+    .poster-label {
+      color: hsla(207.30538922155688, 0%, 29.98%, 1);
+    }
+  }
+
+  .planets-white-calendar {
+    background-image: radial-gradient(
+      circle farthest-corner at 50% 50%,
+      #faf8f4,
+      hsla(35.38461538461539, 66.1%, 88.43%, 1)
+    );
+
+    .starry-quadrent {
+      margin: -70px;
+    }
+
+    .starry-starmap-container {
+      margin: 80px;
+    }
+
+    .poster-grid {
+      border: none;
+      padding: 0;
+    }
+
+    .starry-design-wrapper {
+      border-color: #0f1d26;
+      background-image: radial-gradient(
+        circle farthest-corner at 50% 50%,
+        #243746,
+        hsla(215.2941176470588, 36.17%, 9.22%, 1)
+      );
+    }
+
+    .starry-border {
+      border: none;
+    }
+
+    .poster-label {
+      color: hsla(207.30538922155688, 0%, 29.98%, 1);
+    }
+  }
+
+  .planets-black-calendar {
+    background-image: radial-gradient(ellipse farthest-corner at 50% 50%, #1d2e43 0, #0a1720 100%);
+
+    .poster-quadrent {
+      &-white {
+        display: none;
+      }
+
+      &-calendar-astro-black {
+        display: block !important;
+      }
+
+      &-black {
+        display: none;
+      }
+    }
+
+    .starry-quadrent {
+      margin: -70px;
+    }
+
+    .starry-starmap-container {
+      margin: 80px;
+    }
+
+    .poster-grid {
+      border: none;
+      padding: 0;
+    }
+
+    .starry-design-wrapper {
+      border-color: #0f1d26;
+      background-image: radial-gradient(ellipse farthest-corner at 70% 40%, #f9f5f0 0, #f6e5ce 50%);
+    }
+
+    .starry-border {
+      border: none;
+    }
+
+    .poster-label {
+      color: #f6e5ce !important;
+    }
+  }
+}
+
 
 // <> Poster Rendering Style for print ===================================================

@@ -104,6 +104,7 @@ module.exports = {
             <style>
               body{
                 margin:0;
+                background-color: #d8d8d8;
               }
             </style>
           </head>

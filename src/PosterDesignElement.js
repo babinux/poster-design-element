@@ -57,7 +57,15 @@ export class PosterDesignElement extends LitElement {
           return new Date(this.posterDate).toLocaleDateString('en-EN', options);
         }
       },
+      posterPrint: {
+        type: String,
+        reflect: true
+      },
       posterTitle: {
+        type: String,
+        reflect: true
+      },
+      posterSubtitle: {
         type: String,
         reflect: true
       },
@@ -83,14 +91,17 @@ export class PosterDesignElement extends LitElement {
   }
 
   firstUpdated() {
+
     this.updateUrlFromProps();
   }
 
   updateUrlFromProps() {
     // posterParams.set("color", this.color);
+    posterParams.set("posterPrint", this.posterPrint);
     posterParams.set("posterDesign", this.posterDesign);
     posterParams.set("posterDate", `${this.posterDate.getFullYear()}-${this.posterDate.toLocaleString('default', { month: 'short' })}-${this.posterDate.getDate()}`);
     posterParams.set("posterTitle", this.posterTitle);
+    // posterParams.set("posterSubtitle", this.posterSubtitle);
     posterParams.set("posterLocation", this.posterLocation);
     posterParams.set("posterCoordinates", this.posterCoordinates);
 
@@ -104,8 +115,10 @@ export class PosterDesignElement extends LitElement {
   }
 
   updatePropsFromUrl() {
+    this.posterPrint = posterParams.has("posterPrint") && posterParams.get("posterPrint") > 0 ? 1 : 0;
     this.posterTitle = posterParams.has("posterTitle") ? posterParams.get("posterTitle") : 'Name Of Someone You Love';
-    this.posterLocation = posterParams.has("posterLocation") ? posterParams.get("posterLocation") : 'World';
+    this.posterSubtitle = posterParams.has("posterSubtitle") ? posterParams.get("posterSubtitle") : '';
+    this.posterLocation = posterParams.has("posterLocation") ? posterParams.get("posterLocation") : 'Amazing Place, World';
     this.posterCoordinates = posterParams.has("posterCoordinates") ? posterParams.get("posterCoordinates") : '47.90444°N -116.74111°W';
     this.posterDesign = posterParams.has("posterDesign") ? posterParams.get("posterDesign") : '1';
     this.color = posterParams.has("color") ? posterParams.get("color") : posterDarkOrbits.includes(this.posterDesign) ? 'black' : 'white';
@@ -115,7 +128,19 @@ export class PosterDesignElement extends LitElement {
 
   render() {
 
+    let styleString;
+    if (this.posterPrint) {
+      styleString = html `
+      <style>
+        #poster-container {
+            transform: scale(1)!important;
+        }
+      </style>`;
+    }
+
     return html `
+
+      ${styleString}
     
       <div id="poster-container">
           <div id="poster" class="${posterDesigns[this.posterDesign]}" >
@@ -134,7 +159,7 @@ export class PosterDesignElement extends LitElement {
               </div>
               <div id="" class="poster-label">
                 <h1 id="posterTitle" class="poster-title">${this.posterTitle}<br></h1>
-                <div id="posterSubtitle" class="poster-subtitle"> </div>
+                <div id="posterSubtitle" class="poster-subtitle">${this.posterSubtitle}</div>
                 <p id="posterCoordinates" class="poster-coordinates">${this.posterLocation}, ${this.posterCoordinates}<br></p>
                 <p id="posterDate" class="poster-date">${this.posterFormatedDate}</p>
               </div>
