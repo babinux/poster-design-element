@@ -120,8 +120,8 @@ export class PosterDesignElement extends LitElement {
       <div id="poster-container">
           <div id="poster" class="${posterDesigns[this.posterDesign]}" >
             <div class="poster-grid">
-              <div id="" class="clock-design-wrapper">
-                <div id="circle-wrapper-quadrent" class="circle-wrapper-quadrent">
+              <div id="" class="starry-design-wrapper">
+                <div id="starry-quadrent" class="starry-quadrent">
                   <img class="poster-quadrent-calendar-astro--black" src="https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5d165ecedb0851e61967da18_new%20quadrant.png">
                   <img class="poster-quadrent-calendar-astro--white" src="https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5d165ecedb0851771d67da17_new%20quadrant%20white.png" >
                   

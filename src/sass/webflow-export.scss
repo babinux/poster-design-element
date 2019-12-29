@@ -180,7 +180,7 @@
   grid-column-gap: 16px;
 }
 
-.clock-design-wrapper {
+.starry-design-wrapper {
   position: relative;
   overflow: hidden;
   height: auto;
@@ -196,8 +196,8 @@
   text-transform: lowercase;
 }
 
-.circle-wrapper-quadrent,
-.circle-wrapper-starmap-container {
+.starry-quadrent,
+.starry-starmap-container {
   background-image: none;
   background-size: auto;
   background-repeat: repeat;
@@ -219,7 +219,7 @@
   text-align: center;
 }
 
-.circle-wrapper-quadrent {
+.starry-quadrent {
   position: relative;
   margin: -3px;
 }
@@ -465,7 +465,7 @@
 }
 
 
-.circle-wrapper-starmap-container {
+.starry-starmap-container {
   position: absolute;
   left: 0;
   top: 0;
@@ -486,7 +486,7 @@
   background-repeat: no-repeat;
 }
 
-.circle-wrapper-border {
+.starry-border {
   position: absolute;
   left: 0;
   top: 0;

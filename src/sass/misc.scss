@@ -22,20 +22,20 @@ body {
   .cosmic-latte,
   .navy,
   .supernova {
-    .poster-grid .clock-design-wrapper #myastro {
+    .poster-grid .starry-design-wrapper #myastro {
       --orbit-color: white;
     }
   }
   .deep-space-blue,
   .cosmic-love {
-    .poster-grid .clock-design-wrapper #myastro {
+    .poster-grid .starry-design-wrapper #myastro {
       --orbit-color: black;
     }
   }
 }
 
 
-.circle-wrapper-starmap-container {
+.starry-starmap-container {
   display: none;
 }
 // =========================================
