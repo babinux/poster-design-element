@@ -98,7 +98,7 @@ export class PosterDesignElement extends LitElement {
     posterParams.set("posterLocation", this.posterLocation);
     posterParams.set("posterCoordinates", this.posterCoordinates);
 
-    window.history.replaceState({}, "Updating poster Design", `?${posterParams.toString()}`)
+    // window.history.replaceState({}, "Updating poster Design", `?${posterParams.toString()}`)
   }
 
   attributeChangedCallback(attr, oldVal, newVal) {
@@ -111,8 +111,8 @@ export class PosterDesignElement extends LitElement {
     this.posterPrint = posterParams.has("posterPrint") && posterParams.get("posterPrint") > 0 ? 1 : 0;
     this.posterTitle = posterParams.has("posterTitle") ? posterParams.get("posterTitle") : 'Name Of Someone You Love';
     this.posterSubtitle = posterParams.has("posterSubtitle") ? posterParams.get("posterSubtitle") : '';
-    this.posterLocation = posterParams.has("posterLocation") ? posterParams.get("posterLocation") : 'Amazing Place, World';
-    this.posterCoordinates = posterParams.has("posterCoordinates") ? posterParams.get("posterCoordinates") : '47.90444°N -116.74111°W';
+    this.posterLocation = posterParams.has("posterLocation") ? posterParams.get("posterLocation") : 'Amazing Place, World Country';
+    this.posterCoordinates = posterParams.has("posterCoordinates") ? posterParams.get("posterCoordinates") : '00.00000°N -000.00000°W';
     this.posterDesign = posterParams.has("posterDesign") ? posterParams.get("posterDesign") : '1';
     this.color = posterParams.has("color") ? posterParams.get("color") : posterDarkOrbits.includes(this.posterDesign) ? 'black' : 'white';
     this.posterDate = posterParams.has("posterDate") ? new Date(isNaN(posterParams.get("posterDate")) ? posterParams.get("posterDate") : new Date()) : new Date();
@@ -122,14 +122,19 @@ export class PosterDesignElement extends LitElement {
   render() {
 
     let styleString;
+    let posterScale;
     if (this.posterPrint) {
-      styleString = html `
+      posterScale = `transform: scale(2.5)!important;`
+    } else {
+      posterScale = `transform: scale(0.2)!important;`
+    }
+
+     styleString = html `
       <style>
         #poster-container {
-            transform: scale(1)!important;
+            ${posterScale}
         }
       </style>`;
-    }
 
     return html `
 
@@ -151,9 +156,9 @@ export class PosterDesignElement extends LitElement {
                 </div>
               </div>
               <div id="" class="poster-label">
-                <h1 id="posterTitle" class="poster-title">${this.posterTitle}<br></h1>
+                <h1 id="posterTitle" class="poster-title">${this.posterTitle}</h1>
                 <div id="posterSubtitle" class="poster-subtitle">${this.posterSubtitle}</div>
-                <p id="posterCoordinates" class="poster-coordinates">${this.posterLocation}, ${this.posterCoordinates}<br></p>
+                <p id="posterCoordinates" class="poster-coordinates">${this.posterLocation}, ${this.posterCoordinates}</p>
                 <p id="posterDate" class="poster-date">${this.posterFormatedDate}</p>
               </div>
             </div>
