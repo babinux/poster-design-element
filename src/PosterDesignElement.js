@@ -7,7 +7,8 @@ import {
 import componentStyle from './style.scss';
 
 // Element Import : Planet Clock, required for poster design (style included)
-import '../node_modules/planet-clock-element/index.js';
+// import '../node_modules/planet-clock-element/index.js';
+import 'planet-clock-element';
 
 // List : All the designs for Poster
 const posterDesigns = ['', 'cosmic-latte', 'deep-space-blue', 'navy', 'cosmic-love', 'blackhole', 'supernova'];
