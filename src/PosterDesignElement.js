@@ -74,8 +74,7 @@ export class PosterDesignElement extends LitElement {
         reflect: true
       },
       color: {
-        type: String,
-        reflect: true
+        type: String
       }
     };
   }
