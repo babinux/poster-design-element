@@ -102,8 +102,10 @@ export class PosterDesignElement extends LitElement {
   }
 
   attributeChangedCallback(attr, oldVal, newVal) {
+    if (attr === "posterdesign") {
+      this.color = posterDarkOrbits.includes(this.posterDesign) ? 'black' : 'white';
+    }
     super.attributeChangedCallback(attr, oldVal, newVal);
-
     this.updateUrlFromProps();
   }
 
