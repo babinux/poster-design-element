@@ -49,8 +49,8 @@ export class PosterDesignElement extends LitElement {
       posterFormatedDate: {
         type: String,
         reflect: true,
-        converter() {
-          return new Date(this.posterDate).toLocaleDateString('en-EN', posterDateSettings);
+        converter(value) {
+          return new Date(value).toLocaleDateString('en-EN', posterDateSettings);
         }
       },
       posterPrint: {
