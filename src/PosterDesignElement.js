@@ -121,6 +121,21 @@ export class PosterDesignElement extends LitElement {
     this.posterFormatedDate = this.posterDate.toLocaleDateString('en-EN', posterDateSettings);
   }
 
+
+
+    onInputChange(event) {
+      let input = event.target || event.srcElement || event.srcElement.html;
+      console.log(input);
+      // console.log(caller.name);
+      // console.log(caller.id);
+      console.log(input.getAttribute('data-property-name'));
+      console.log(input.value);
+
+
+
+    }
+
+
   render() {
 
     let styleString;
@@ -158,10 +173,10 @@ export class PosterDesignElement extends LitElement {
                 </div>
               </div>
               <div id="" class="poster-label">
-                <h1 id="posterTitle" class="poster-title">${this.posterTitle}</h1>
-                <div id="posterSubtitle" class="poster-subtitle">${this.posterSubtitle}</div>
+                <h1 id="posterTitle" class="poster-title" @change="${this.onInputChange}" contenteditable="true">${this.posterTitle}</h1>
+                <div id="posterSubtitle" class="poster-subtitle" contenteditable="true">${this.posterSubtitle}</div>
                 <p id="posterCoordinates" class="poster-coordinates">${this.posterLocation}, ${this.posterCoordinates}</p>
-                <p id="posterDate" class="poster-date">${this.posterFormatedDate}</p>
+                <p id="posterDate" class="poster-date" contenteditable="true">${this.posterFormatedDate}</p>
               </div>
             </div>
           </div>
