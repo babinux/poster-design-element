@@ -25,7 +25,7 @@ const posterDateSettings = {
 
 // Getter: URL and Params for use later
 const url = new URL(document.location);
-const posterParams = new URLSearchParams(url.search);
+let posterParams = new URLSearchParams(url.search);
 
 export class PosterDesignElement extends LitElement {
 
@@ -137,6 +137,7 @@ export class PosterDesignElement extends LitElement {
   }
 
   updateUrlFromDom(domText) {
+    posterParams = new URLSearchParams(url.search);
     posterParams.set("posterTitle", domText);
     window.history.replaceState({}, "Updating poster Design", `?${posterParams.toString()}`);
     this.updatePropsFromUrl();
