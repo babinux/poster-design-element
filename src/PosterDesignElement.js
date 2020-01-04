@@ -99,7 +99,7 @@ export class PosterDesignElement extends LitElement {
     this.posterParams.set("posterLocation", this.posterLocation);
     this.posterParams.set("posterCoordinates", this.posterCoordinates);
 
-    window.history.replaceState({}, "Updating poster Design", `?${this.posterParams.toString()}`)
+    // window.history.replaceState({}, "Updating poster Design", `?${this.posterParams.toString()}`)
   }
 
   attributeChangedCallback(attr, oldVal, newVal) {
