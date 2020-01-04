@@ -23,9 +23,7 @@ const posterDateSettings = {
   day: 'numeric'
 };
 
-// Getter: URL and Params for use later
-const url = new URL(document.location);
-let posterParams = new URLSearchParams(url.search);
+
 
 export class PosterDesignElement extends LitElement {
 
@@ -81,6 +79,9 @@ export class PosterDesignElement extends LitElement {
 
   constructor() {
     super();
+    // Getter: URL and Params for use later
+    this.url = new URL(document.location);
+    this.posterParams = new URLSearchParams(this.url.search);
     this.updatePropsFromUrl();
   }
 
@@ -89,16 +90,16 @@ export class PosterDesignElement extends LitElement {
   }
 
   updateUrlFromProps() {
-    // posterParams.set("color", this.color);
-    posterParams.set("posterPrint", this.posterPrint);
-    posterParams.set("posterDesign", this.posterDesign);
-    posterParams.set("posterDate", `${this.posterDate.getFullYear()}-${this.posterDate.toLocaleString('default', { month: 'short' })}-${this.posterDate.getDate()}`);
-    posterParams.set("posterTitle", this.posterTitle);
-    // posterParams.set("posterSubtitle", this.posterSubtitle);
-    posterParams.set("posterLocation", this.posterLocation);
-    posterParams.set("posterCoordinates", this.posterCoordinates);
+    // this.posterParams.set("color", this.color);
+    this.posterParams.set("posterPrint", this.posterPrint);
+    this.posterParams.set("posterDesign", this.posterDesign);
+    this.posterParams.set("posterDate", `${this.posterDate.getFullYear()}-${this.posterDate.toLocaleString('default', { month: 'short' })}-${this.posterDate.getDate()}`);
+    this.posterParams.set("posterTitle", this.posterTitle);
+    // this.posterParams.set("posterSubtitle", this.posterSubtitle);
+    this.posterParams.set("posterLocation", this.posterLocation);
+    this.posterParams.set("posterCoordinates", this.posterCoordinates);
 
-    // window.history.replaceState({}, "Updating poster Design", `?${posterParams.toString()}`)
+    window.history.replaceState({}, "Updating poster Design", `?${this.posterParams.toString()}`)
   }
 
   attributeChangedCallback(attr, oldVal, newVal) {
@@ -110,71 +111,67 @@ export class PosterDesignElement extends LitElement {
   }
 
   updatePropsFromUrl() {
-    this.posterPrint = posterParams.has("posterPrint") && posterParams.get("posterPrint") > 0 ? 1 : 0;
-    this.posterTitle = posterParams.has("posterTitle") ? posterParams.get("posterTitle") : 'Name Of Someone You Love';
-    this.posterSubtitle = posterParams.has("posterSubtitle") ? posterParams.get("posterSubtitle") : '';
-    this.posterLocation = posterParams.has("posterLocation") ? posterParams.get("posterLocation") : 'Amazing Place, World Country';
-    this.posterCoordinates = posterParams.has("posterCoordinates") ? posterParams.get("posterCoordinates") : '00.00000°N -000.00000°W';
-    this.posterDesign = posterParams.has("posterDesign") ? posterParams.get("posterDesign") : '1';
-    this.color = posterParams.has("color") ? posterParams.get("color") : posterDarkOrbits.includes(this.posterDesign) ? 'black' : 'white';
-    this.posterDate = posterParams.has("posterDate") ? new Date(isNaN(posterParams.get("posterDate")) ? posterParams.get("posterDate") : new Date()) : new Date();
+
+    // console.log(this.url);
+
+    this.posterPrint = this.posterParams.has("posterPrint") && this.posterParams.get("posterPrint") > 0 ? 1 : 0;
+    this.posterTitle = this.posterParams.has("posterTitle") ? this.posterParams.get("posterTitle") : 'Name Of Someone You Love';
+    this.posterSubtitle = this.posterParams.has("posterSubtitle") ? this.posterParams.get("posterSubtitle") : '';
+    this.posterLocation = this.posterParams.has("posterLocation") ? this.posterParams.get("posterLocation") : 'Amazing Place, World Country';
+    this.posterCoordinates = this.posterParams.has("posterCoordinates") ? this.posterParams.get("posterCoordinates") : '00.00000°N -000.00000°W';
+    this.posterDesign = this.posterParams.has("posterDesign") ? this.posterParams.get("posterDesign") : '1';
+    this.color = this.posterParams.has("color") ? this.posterParams.get("color") : posterDarkOrbits.includes(this.posterDesign) ? 'black' : 'white';
+    this.posterDate = this.posterParams.has("posterDate") ? new Date(isNaN(this.posterParams.get("posterDate")) ? this.posterParams.get("posterDate") : new Date()) : new Date();
     this.posterFormatedDate = this.posterDate.toLocaleDateString('en-EN', posterDateSettings);
   }
 
 
 
   onDomChange(event) {
-    let input = event.target || event.srcElement || event.srcElement.html;
+    this.url = new URL(document.location);
+    this.posterParams = new URLSearchParams(this.url.search);
+
+    // console.log(this.url);
+    // console.log(this.posterParams);
+    const input = event.target || event.srcElement || event.srcElement.html;
+
+    this.posterParams.set(input.getAttribute('data-property-name'), input.innerHTML.replace(/<!---->/sg, ""));
+    window.history.replaceState({}, "Updating poster Design", `?${this.posterParams.toString()}`);
+
+  }
+
+
+  onInputChange(event) {
+    let input = event.target || event.srcElement;
     console.log(input);
+    // console.log(caller.name);
+    // console.log(caller.id);
     console.log(input.getAttribute('data-property-name'));
-    // console.log(input.getAttribute('data-property-value'));
-    console.log(input.innerHTML);
+    console.log(input.value);
 
-    // input.innerHTML.replace(/<!--.*?-->/sg, "");
-    // this[input.getAttribute('data-property-name')] = myInnerHTML.replace(/<!---->/sg, "");
 
-    this.updateUrlFromDom(input.innerHTML.replace(/<!---->/sg, ""));
+
+    if (input.getAttribute('data-property-name') === "posterDate") {
+      console.log(input.getAttribute('data-property-name'));
+      console.log("+-----+");
+
+      this[input.getAttribute('data-property-name')] = new Date(input.value);
+      console.log(this[input.getAttribute('data-property-name')]);
+      console.log(this.posterDate);
+      console.log("+++++");
+
+      console.log(this.posterFormatedDate);
+
+
+
+      this.posterFormatedDate = this.posterDate;
+      console.log(this.posterFormatedDate);
+
+
+    } else {
+      this[input.getAttribute('data-property-name')] = input.value;
+    }
   }
-
-  updateUrlFromDom(domText) {
-    posterParams = new URLSearchParams(url.search);
-    posterParams.set("posterTitle", domText);
-    window.history.replaceState({}, "Updating poster Design", `?${posterParams.toString()}`);
-    // this.updatePropsFromUrl();
-  }
-
-
-onInputChange(event) {
-  let input = event.target || event.srcElement;
-  console.log(input);
-  // console.log(caller.name);
-  // console.log(caller.id);
-  console.log(input.getAttribute('data-property-name'));
-  console.log(input.value);
-
-
-
-  if (input.getAttribute('data-property-name') === "posterDate") {
-    console.log(input.getAttribute('data-property-name'));
-    console.log("+-----+");
-
-    this[input.getAttribute('data-property-name')] = new Date(input.value);
-    console.log(this[input.getAttribute('data-property-name')]);
-    console.log(this.posterDate);
-    console.log("+++++");
-
-    console.log(this.posterFormatedDate);
-
-
-
-    this.posterFormatedDate = this.posterDate;
-    console.log(this.posterFormatedDate);
-
-
-  } else {
-    this[input.getAttribute('data-property-name')] = input.value;
-  }
-}
 
 
   render() {
