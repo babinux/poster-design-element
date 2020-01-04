@@ -140,7 +140,7 @@ export class PosterDesignElement extends LitElement {
     posterParams = new URLSearchParams(url.search);
     posterParams.set("posterTitle", domText);
     window.history.replaceState({}, "Updating poster Design", `?${posterParams.toString()}`);
-    this.updatePropsFromUrl();
+    // this.updatePropsFromUrl();
   }
 
 
