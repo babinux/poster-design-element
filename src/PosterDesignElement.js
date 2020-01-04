@@ -123,7 +123,7 @@ export class PosterDesignElement extends LitElement {
 
 
 
-  onInputChange(event) {
+  onDomChange(event) {
     let input = event.target || event.srcElement || event.srcElement.html;
     console.log(input);
     console.log(input.getAttribute('data-property-name'));
@@ -142,6 +142,39 @@ export class PosterDesignElement extends LitElement {
     window.history.replaceState({}, "Updating poster Design", `?${posterParams.toString()}`);
     this.updatePropsFromUrl();
   }
+
+
+onInputChange(event) {
+  let input = event.target || event.srcElement;
+  console.log(input);
+  // console.log(caller.name);
+  // console.log(caller.id);
+  console.log(input.getAttribute('data-property-name'));
+  console.log(input.value);
+
+
+
+  if (input.getAttribute('data-property-name') === "posterDate") {
+    console.log(input.getAttribute('data-property-name'));
+    console.log("+-----+");
+
+    this[input.getAttribute('data-property-name')] = new Date(input.value);
+    console.log(this[input.getAttribute('data-property-name')]);
+    console.log(this.posterDate);
+    console.log("+++++");
+
+    console.log(this.posterFormatedDate);
+
+
+
+    this.posterFormatedDate = this.posterDate;
+    console.log(this.posterFormatedDate);
+
+
+  } else {
+    this[input.getAttribute('data-property-name')] = input.value;
+  }
+}
 
 
   render() {
@@ -181,9 +214,10 @@ export class PosterDesignElement extends LitElement {
                 </div>
               </div>
               <div id="" class="poster-label">
-                <h1 id="posterTitle" data-property-name="posterTitle" class="poster-title" @input="${this.onInputChange}" contenteditable="true">${this.posterTitle}</h1>
+                <h1 id="posterTitle" data-property-name="posterTitle" class="poster-title" @input="${this.onDomChange}" contenteditable="true">${this.posterTitle}</h1>
+                <!-- <input id="posterTitle" @input="${this.onInputChange}"  value="${this.posterTitle}"> -->
                 <div id="posterSubtitle" data-property-name="posterSubtitle" class="poster-subtitle" contenteditable="true">${this.posterSubtitle}</div>
-                <p id="posterCoordinates" data-property-name="posterCoordinates" class="poster-coordinates" contenteditable="true" @input="${this.onInputChange}" >${this.posterLocation}, ${this.posterCoordinates}</p>
+                <p id="posterCoordinates" data-property-name="posterCoordinates" class="poster-coordinates" contenteditable="true" @input="${this.onDomChange}" >${this.posterLocation}, ${this.posterCoordinates}</p>
                 <p id="posterDate" data-property-name="posterDate" class="poster-date" contenteditable="true">${this.posterFormatedDate}</p>
               </div>
             </div>
