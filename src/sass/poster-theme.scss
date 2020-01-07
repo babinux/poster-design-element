@@ -21,6 +21,7 @@
 
   * {
     transition: all 0.5s ease;
+    box-sizing: border-box;
   }
 
   #myastro {
@@ -67,14 +68,14 @@
             &-calendar-astro {
               display: block;
               width: 100%;
-              &--black {
-                @extend .poster-quadrent-calendar-astro;
-                display: $poster-quadrent-black;
-              }
-              &--white {
-                @extend .poster-quadrent-calendar-astro;
-                display: $poster-quadrent-white;
-              }
+              // &--black {
+              //   @extend .poster-quadrent-calendar-astro;
+              //   display: $poster-quadrent-black;
+              // }
+              // &--white {
+              //   @extend .poster-quadrent-calendar-astro;
+              //   display: $poster-quadrent-white;
+              // }
             }
           }
         }

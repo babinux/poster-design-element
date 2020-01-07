@@ -1,4 +1,3 @@
-
 // .poster-grid,
 // .poster,
 // .poster-frame-design-container,
@@ -248,7 +247,6 @@
 //   opacity: 0;
 // }
 
-
 // .poster-star-map {
 //   position: absolute;
 //   left: 0;
@@ -425,7 +423,6 @@
 //   bottom: 0;
 // }
 
-
 // .poster-quadrent-black {
 //   top: 0;
 //   display: none;
@@ -457,7 +454,6 @@
 //   -ms-flex-item-align: stretch;
 //   align-self: stretch;
 // }
-
 
 // .starry-starmap-container {
 //   position: absolute;
@@ -1115,7 +1111,6 @@
   line-height: 1em;
 }
 
-
 .design-frame-block {
   display: flex;
   padding: 0;
@@ -1332,7 +1327,6 @@
   background-size: 2450px;
 }
 
-
 .poster-grid-container {
   position: relative;
   display: -ms-grid;
@@ -1406,7 +1400,6 @@
   background-color: transparent;
 }
 
-
 .canvas-container {
   top: 50%;
   z-index: -1;
@@ -1457,7 +1450,6 @@
 
 .info-menu,
 .info-poster,
-
 .overlay-background.background-poster-mockup {
   align-self: stretch;
   background-image: url(https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5cac6c08f8d44db6dd190e0b_1__PnL1RaDiWEQphzUfuBuSg-clear.jpeg);
@@ -1476,26 +1468,8 @@
 }
 
 
-.space-backgroud,
-.svghtml-embed {
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-}
 
-.space-backgroud,
-.space-background,
-.svghtml-embed {
-  position: absolute;
-  top: 0;
-  height: 100%;
-}
 
-.svghtml-embed {
-  z-index: 99;
-  padding: 8%;
-}
 
 .space-backgroud {
   display: block;
