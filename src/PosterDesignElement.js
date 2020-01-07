@@ -177,6 +177,9 @@ export class PosterDesignElement extends LitElement {
     }
   }
 
+  getQuadrant() {
+    return posterDarkOrbits.includes(this.posterDesign) ? clockQuadrantBlack : clockQuadrantWhite;
+  }
 
   render() {
 
@@ -233,11 +236,6 @@ export class PosterDesignElement extends LitElement {
           </div>
       </div>
     `;
-  }
-
-
-  getQuadrant() {
-    return posterDarkOrbits.includes(this.posterDesign) ? clockQuadrantBlack : clockQuadrantWhite;
   }
 
 
