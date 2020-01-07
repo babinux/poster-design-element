@@ -1,6 +1,7 @@
 import {
   html,
-  LitElement
+  LitElement,
+  svg
 } from 'lit-element';
 
 // Style Import : Main/Current Component Style
@@ -9,6 +10,9 @@ import componentStyle from './style.scss';
 // Element Import : Planet Clock, required for poster design (style included)
 // import '../node_modules/planet-clock-element/index.js';
 import 'planet-clock-element';
+import clockQuadrantBlack from './assets/svg/clock-quadrant-black.svg';
+import clockQuadrantWhite from './assets/svg/clock-quadrant-white.svg';
+
 
 // List : All the designs for Poster
 const posterDesigns = ['', 'cosmic-latte', 'deep-space-blue', 'navy', 'cosmic-love', 'blackhole', 'supernova'];
@@ -176,7 +180,7 @@ export class PosterDesignElement extends LitElement {
 
   render() {
 
-    let styleString;
+    // let styleString;
     let posterScale;
     if (this.posterPrint) {
       posterScale = `transform: scale(2.5)!important;`
@@ -184,35 +188,43 @@ export class PosterDesignElement extends LitElement {
       posterScale = `transform: scale(0.2)!important;`
     }
 
-    styleString = html `
+    const styleString = html `
       <style>
         #poster-container {
             ${posterScale}
         }
       </style>`;
 
+    // <!-- <div>${clockQuadrantBlack}</div> -->
+    // <!-- <div>${this.getQuadrant()}</div> -->
+
+
     return html `
 
       ${styleString}
-    
+           
+     
+
       <div id="poster-container">
           <div id="poster" class="${posterDesigns[this.posterDesign]}" >
             <div class="poster-grid">
               <div id="" class="starry-design-wrapper">
                 <div id="starry-quadrent" class="starry-quadrent">
-                  <img class="poster-quadrent-calendar-astro--black" src="https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5d165ecedb0851e61967da18_new%20quadrant.png">
-                  <img class="poster-quadrent-calendar-astro--white" src="https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5d165ecedb0851771d67da17_new%20quadrant%20white.png" >
                   
+                  <!-- 
+                    <img class="poster-quadrent-calendar-astro--black" src="https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5d165ecedb0851e61967da18_new%20quadrant.png">
+                    <img class="poster-quadrent-calendar-astro--white" src="https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5d165ecedb0851771d67da17_new%20quadrant%20white.png" > 
+                  -->
+
+                  <img class="poster-quadrent-calendar-astro" src="${this.getQuadrant()}">
+
                   <div class="svghtml-embed">
-                  
                     <planet-clock-element color="${this.color}" .posterDate="${this.posterDate}"></planet-clock-element>
-                  
                   </div>
                 </div>
               </div>
               <div id="" class="poster-label">
                 <h1 id="posterTitle" data-property-name="posterTitle" class="poster-title" @input="${this.onDomChange}" contenteditable="true">${this.posterTitle}</h1>
-                <!-- <input id="posterTitle" @input="${this.onInputChange}"  value="${this.posterTitle}"> -->
                 <div id="posterSubtitle" data-property-name="posterSubtitle" class="poster-subtitle" contenteditable="true">${this.posterSubtitle}</div>
                 <p id="posterCoordinates" data-property-name="posterCoordinates" class="poster-coordinates" contenteditable="true" @input="${this.onDomChange}" >${this.posterLocation}, ${this.posterCoordinates}</p>
                 <p id="posterDate" data-property-name="posterDate" class="poster-date" contenteditable="true">${this.posterFormatedDate}</p>
@@ -222,6 +234,16 @@ export class PosterDesignElement extends LitElement {
       </div>
     `;
   }
+
+
+  getQuadrant() {
+    return posterDarkOrbits.includes(this.posterDesign) ? clockQuadrantBlack : clockQuadrantWhite;
+  }
+
+
+
+
+
 }
 
 window.customElements.define('poster-design-element', PosterDesignElement);

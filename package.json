@@ -54,6 +54,8 @@
     "planet-clock-element": "git+https://github.com/babinux/planet-clock-element.git",
     "sass-loader": "^8.0.0",
     "scss-loader": "0.0.1",
+    "svg-inline-loader": "^0.8.0",
+    "svg-url-loader": "^3.0.3",
     "terser-webpack-plugin": "^2.3.1"
   },
   "devDependencies": {
