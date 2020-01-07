@@ -10,8 +10,11 @@ import componentStyle from './style.scss';
 // Element Import : Planet Clock, required for poster design (style included)
 // import '../node_modules/planet-clock-element/index.js';
 import 'planet-clock-element';
-import clockQuadrantBlack from './assets/svg/clock-quadrant-black.svg';
-import clockQuadrantWhite from './assets/svg/clock-quadrant-white.svg';
+
+import svgClockQuadrantBlack from './assets/svg/clock-quadrant-black.svg';
+import svgClockQuadrantWhite from './assets/svg/clock-quadrant-white.svg';
+import pngClockQuadrantBlack from './assets/img/clock-quadrant-black.png';
+import pngClockQuadrantWhite from './assets/img/clock-quadrant-white.png';
 
 
 // List : All the designs for Poster
@@ -178,7 +181,14 @@ export class PosterDesignElement extends LitElement {
   }
 
   getQuadrant() {
-    return posterDarkOrbits.includes(this.posterDesign) ? clockQuadrantBlack : clockQuadrantWhite;
+    let quadrantDesign;
+    if (this.posterPrint > 0){
+           quadrantDesign = posterDarkOrbits.includes(this.posterDesign) ? svgClockQuadrantBlack : svgClockQuadrantWhite
+
+    } else{
+           quadrantDesign = posterDarkOrbits.includes(this.posterDesign) ? pngClockQuadrantBlack : pngClockQuadrantWhite
+    }
+    return quadrantDesign;
   }
 
   render() {
