@@ -1,6 +1,6 @@
 #poster-container {
-  height: 100%;
-  width: 100%;
+  // height: 100%;
+  // width: 100%;
 
   // transform: scale(0.2);
   transform-origin: top left;
@@ -8,12 +8,18 @@
   #poster {
     width: 27in;
     height: 36in;
-
     padding: 12rem 9.5rem;
 
     .poster {
       &-grid {
         .poster-label {
+          display: flex;
+          height: 100%;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-self: end;
+          text-align: center;
+
           #posterTitle {
             font-size: 7rem;
             margin-block-start: 0;
@@ -36,6 +42,7 @@
             }
           }
 
+          #posterLocation,
           #posterCoordinates {
             font-size: 3.5rem;
             line-height: 130%;
@@ -51,7 +58,7 @@
           }
 
           #posterDate {
-            font-size: 3.5rem;
+            font-size: 4.5rem;
             margin-block-start: 0;
             margin-block-end: 3rem;
             font-family: 'Barlow Semi Condensed', sans-serif;
@@ -110,10 +117,6 @@
     .starry-border {
       border: none;
     }
-
-    .poster-label {
-      color: #f6e5ce !important;
-    }
   }
 
   .planets-white {
@@ -152,10 +155,6 @@
     .starry-border {
       border: none;
     }
-
-    .poster-label {
-      color: hsla(207.30538922155688, 0%, 29.98%, 1);
-    }
   }
 
   .planets-white-calendar {
@@ -189,10 +188,6 @@
 
     .starry-border {
       border: none;
-    }
-
-    .poster-label {
-      color: hsla(207.30538922155688, 0%, 29.98%, 1);
     }
   }
 
@@ -233,10 +228,6 @@
 
     .starry-border {
       border: none;
-    }
-
-    .poster-label {
-      color: #f6e5ce !important;
     }
   }
 }

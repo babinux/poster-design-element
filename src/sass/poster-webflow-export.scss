@@ -1,11 +1,4 @@
-// .poster-grid,
-// .poster,
-// .poster-frame-design-container,
-// .poster-label,
-// .right-grid {
-//   -webkit-box-orient: vertical;
-//   -webkit-box-direction: normal;
-// }
+
 
 // .left-container,
 // .main-grid,
@@ -157,12 +150,7 @@
   grid-template-rows: auto auto;
 }
 
-// .app-menu-label.create-label,
-// .poster-label {
-//   display: -webkit-box;
-//   display: -webkit-flex;
-//   display: -ms-flexbox;
-// }
+
 
 // .field-month,
 // .field-time {
@@ -197,21 +185,6 @@
   background-repeat: repeat;
 }
 
-.poster-label {
-  display: flex;
-  height: 100%;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  -webkit-align-self: end;
-  -ms-flex-item-align: end;
-  align-self: end;
-  text-align: center;
-}
 
 // .starry-quadrent {
 //   position: relative;
