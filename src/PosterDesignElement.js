@@ -366,9 +366,17 @@ export class PosterDesignElement extends LitElement {
                 <dom-module id="custom-date-picker--text" theme-for="vaadin-text-field">
                   <template>
                     <style>
+                      /* :host([theme~='custom']), */
                       :host([theme~='custom']) div {
                         display: none !important;
                       }
+                    </style>
+                  </template>
+                </dom-module>
+
+                <dom-module id="custom-date-picker--trsh" theme-for="vaadin-text-field">
+                  <template>
+                    <style>
                       /* :host([theme~='custom']) {
                         position: relative;
                         display: block;
