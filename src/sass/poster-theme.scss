@@ -46,24 +46,24 @@
           }
         }
 
-        &-border {
-          border-color: $circle-wrapper-border-color;
-          border-width: $circle-wrapper-border-width;
-        }
+        // &-border {
+        //   border-color: $circle-wrapper-border-color;
+        //   border-width: $circle-wrapper-border-width;
+        // }
 
         &-quadrent {
           margin: -4px;
 
           .poster-quadrent {
-            &-white {
-              // display: $poster-quadrent-white;
-              display: none;
-            }
+            // &-white {
+            //   // display: $poster-quadrent-white;
+            //   display: none;
+            // }
 
-            &-black {
-              // display: $poster-quadrent-black;
-              display: none;
-            }
+            // &-black {
+            //   // display: $poster-quadrent-black;
+            //   display: none;
+            // }
 
             &-calendar-astro {
               display: block;
@@ -203,6 +203,23 @@ $supernova: (
   thumbnail-image:
     url('https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5ca538588ad431544152f501_6.png'),
 );
+$milk-drop: (
+  poster-background-image: none,
+  poster-background-color: black,
+  poster-quadrent-white: none,
+  poster-quadrent-black: block,
+  border-grid-color: 4px solid white,
+  border-grid-padding: 10rem,
+  circle-wrap-background-image: none,
+  circle-wrap-background-color: white,
+  circle-wrap-border-color: black,
+  circle-wrap-border-width: 2.5px,
+  circle-wrapper-border-width: 50px,
+  circle-wrapper-border-color: white,
+  poster-label-color: white,
+  thumbnail-image:
+    url('https://uploads-ssl.webflow.com/5c982a546929129ffbb9a2cc/5ca53858a4d83fef18f9eb9b_4.png'),
+);
 
 #poster-container {
   .cosmic-latte {
@@ -227,6 +244,10 @@ $supernova: (
 
   .deep-space-blue {
     @include poster-gen($deep-space-blue...);
+  }
+
+  .milk-drop {
+    @include poster-gen($milk-drop...);
   }
 }
 
