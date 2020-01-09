@@ -395,7 +395,6 @@ export class PosterDesignElement extends LitElement {
                 >
                 </vaadin-date-picker>
               </p>
-              <div></div>
 
               <p
                 id="posterLocation"
