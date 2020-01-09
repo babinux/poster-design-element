@@ -86,19 +86,8 @@
             @include editable-content;
           }
 
-          vaadin-date-picker {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-            display: block;
-          }
-          #overlay,
-          vaadin-date-picker-overlay {
-            opacity: 0.5 !important;
-          }
-          #posterDate {
+          #posterDate,
+          .poster-date {
             display: block;
             position: relative;
             font-size: 4.7rem;
@@ -111,6 +100,15 @@
             // margin-bottom: 1rem;
             @include empty_display_none_style;
             @include hover_style;
+
+            vaadin-date-picker {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              left: 0;
+              top: 0;
+              display: block;
+            }
           }
         }
       }

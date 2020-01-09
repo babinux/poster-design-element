@@ -340,15 +340,16 @@ export class PosterDesignElement extends LitElement {
                 ${this.posterFormatedDate}
 
                 <dom-module
-                  id="custom-date-picker"
-                  theme-for="vaadin-date-picker vaadin-text-field input-field"
+                  id="custom-date-picker--supercustom"
+                  theme-for="vaadin-date-picker vaadin-text-field"
                 >
                   <template>
                     <style>
                       :host([theme~='custom']),
-                      .vaadin-text-field-container,
-                      .vaadin-text-area-container {
-                        font-family: monospace;
+                      :host([theme~='custom']) .vaadin-text-field-container,
+                      :host([theme~='custom']) .vaadin-text-area-container {
+                        all: initial;
+
                         /* opacity: 0; */
                         position: absolute;
                         width: 100%;
@@ -358,31 +359,41 @@ export class PosterDesignElement extends LitElement {
                         display: block;
                         background-color: transparent;
                       }
-                      /* [part="overlay"],#overlay-content, :host, vaadin-date-picker-overlay#overlay{
-                          opacity:0.5;
-                        } */
-                      .vaadin-text-field-container [part='input-field'] {
-                        background-color: transparent;
-                        font-size: 6em;
-                        line-height: 100%;
-                      }
-                      [part='toggle-button'] {
-                        display: none;
-                      }
                     </style>
                   </template>
                 </dom-module>
 
-                <dom-module
-                  id="custom-date-picker--toggle-button"
-                  theme-for="vaadin-date-picker vaadin-text-field"
-                >
+                <dom-module id="custom-date-picker--text" theme-for="vaadin-text-field">
                   <template>
                     <style>
-                      :host,
-                      :host([theme~='custom']) {
-                        background-color: red;
+                      :host([theme~='custom']) div {
+                        display: none !important;
                       }
+                      /* :host([theme~='custom']) {
+                        position: relative;
+                        display: block;
+                      } */
+
+                      /* :host([theme~='custom']) {
+                        all: initial;
+                        * {
+                          all: unset;
+                        }
+                      } */
+                      /* :host([theme~='custom']) .vaadin-text-field-container {
+                        display: block;
+                      }
+                      :host([theme~='custom']) .vaadin-text-field-container [part='input-field'] {
+                        font-family: 'Barlow Semi Condensed', sans-serif;
+                        font-weight: bold;
+                        display: block;
+                        background-color: transparent;
+                        font-size: 4.7em;
+                        line-height: 100%;
+                      }
+                      :host([theme~='custom']) .vaadin-text-field-container [part='input-field'] input {
+                        text-align: center;
+                      } */
                     </style>
                   </template>
                 </dom-module>
@@ -396,7 +407,7 @@ export class PosterDesignElement extends LitElement {
                       :host,
                       :host([theme~='custom']) {
                         opacity: 0.95;
-                        background-color: blue;
+                        /* background-color: blue; */
                       }
                     </style>
                   </template>
@@ -404,7 +415,7 @@ export class PosterDesignElement extends LitElement {
 
                 <vaadin-date-picker
                   theme="custom"
-                  id="posterDate"
+                  id=""
                   class="poster-date"
                   @change="${this.onInputChange}"
                   data-property_name="posterDate"
