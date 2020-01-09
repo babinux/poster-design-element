@@ -387,7 +387,10 @@ export class PosterDesignElement extends LitElement {
                   </template>
                 </dom-module>
 
-                <dom-module id="custom-date-picker--overlay" theme-for="vaadin-date-picker-overlay">
+                <dom-module
+                  id="custom-date-picker--overlay"
+                  theme-for="vaadin-date-picker-overlay-content"
+                >
                   <template>
                     <style>
                       :host,
