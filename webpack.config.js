@@ -120,7 +120,7 @@ module.exports = {
           {
             loader: 'lit-scss-loader',
             options: {
-              minify: false, // defaults to false
+              minify: true, // defaults to false
             },
           },
           'extract-loader',
@@ -128,20 +128,17 @@ module.exports = {
           'sass-loader',
         ],
       },
+      // {
+      //   test: /\.svg$/,
+      //   use: [
+      //     {
+      //       loader: 'svg-url-loader',
+      //       options: {},
+      //     },
+      //   ],
+      // },
       {
-        test: /\.svg$/,
-        use: [
-          {
-            // loader: 'file-loader',
-            loader: 'svg-url-loader',
-            // loader: 'svg-inline-loader',
-            options: {},
-          },
-          'file-loader',
-        ],
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|svg)$/,
         use: ['file-loader'],
       },
       {
@@ -153,13 +150,13 @@ module.exports = {
   plugins: pluginList,
   optimization: {
     splitChunks: {
-      // chunks: 'all',
+      chunks: 'all',
       cacheGroups: {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'all',
-          // minChunks: 2,
+          minChunks: 2,
         },
       },
     },
