@@ -290,7 +290,7 @@ export class PosterDesignElement extends LitElement {
           ${posterScale}
         }
 
-        #posterSubtitle{
+        #posterSubtitle {
           ${posterSubtitle}
         }
       </style>
@@ -313,23 +313,22 @@ export class PosterDesignElement extends LitElement {
               </div>
             </div>
             <div id="" class="poster-label">
-              <h1
-                id="posterTitle"
-                data-property_name="posterTitle"
-                class="poster-title"
-                @input="${this.onDomChange}"
-                contenteditable="true"
-              >
-                ${this.posterTitle}
+              <h1 id="posterTitle" class="poster-title">
+                <span
+                  @input="${this.onDomChange}"
+                  contenteditable="true"
+                  data-property_name="posterTitle"
+                  >${this.posterTitle}</span
+                >
               </h1>
 
-              <div
-                id="posterSubtitle"
-                data-property_name="posterSubtitle"
-                class="poster-subtitle"
-                contenteditable="true"
-              >
-                ${this.posterSubtitle}
+              <div id="posterSubtitle" class="poster-subtitle">
+                <span
+                  @input="${this.onDomChange}"
+                  contenteditable="true"
+                  data-property_name="posterSubtitle"
+                  >${this.posterSubtitle}</span
+                >
               </div>
 
               <p
