@@ -194,6 +194,7 @@ export class PosterDesignElement extends LitElement {
     // eslint-disable-next-line no-restricted-globals
     this.posterDate = this.posterParams.has('posterDate')
       ? new Date(
+          // eslint-disable-next-line no-restricted-globals
           isNaN(this.posterParams.get('posterDate'))
             ? this.posterParams.get('posterDate')
             : new Date(),
