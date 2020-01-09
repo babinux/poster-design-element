@@ -1,3 +1,7 @@
+* {
+  // transition: all 0.5s ease;
+  box-sizing: border-box;
+}
 // Poster Designs ===================================================
 @mixin poster-gen(
   $poster-background-image,
@@ -18,11 +22,6 @@
   background-image: $poster-background-image;
   background-color: $poster-background-color;
   transition: all 0.5s ease;
-
-  * {
-    transition: all 0.5s ease;
-    box-sizing: border-box;
-  }
 
   #myastro {
     --orbit-color: #{$circle-wrap-border-color};
@@ -52,8 +51,15 @@
         // }
 
         &-quadrent {
-          margin: -4px;
+          position: relative;
+          &:before {
+            display: block;
+            content: '';
+            width: 100%;
+            padding-top: 100%;
+          }
 
+          margin: -4px;
           .poster-quadrent {
             // &-white {
             //   // display: $poster-quadrent-white;
@@ -68,6 +74,11 @@
             &-calendar-astro {
               display: block;
               width: 100%;
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
               // &--black {
               //   @extend .poster-quadrent-calendar-astro;
               //   display: $poster-quadrent-black;

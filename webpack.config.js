@@ -38,6 +38,7 @@ const devPlugins = [
                 <poster-design-element></poster-design-element>
 
                 <script defer src="vendors~index.js"></script>
+                <script defer src="vendors.js"></script>
             </body>
           </html>
       `,
@@ -131,8 +132,8 @@ module.exports = {
         test: /\.svg$/,
         use: [
           {
-            loader: 'file-loader',
-            // loader: 'svg-url-loader',
+            // loader: 'file-loader',
+            loader: 'svg-url-loader',
             // loader: 'svg-inline-loader',
             options: {},
           },
@@ -152,13 +153,13 @@ module.exports = {
   plugins: pluginList,
   optimization: {
     splitChunks: {
-      chunks: 'all',
+      // chunks: 'all',
       cacheGroups: {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'all',
-          minChunks: 2,
+          // minChunks: 2,
         },
       },
     },

@@ -191,7 +191,7 @@ export class PosterDesignElement extends LitElement {
       : posterDarkOrbits.includes(this.posterDesign)
       ? 'black'
       : 'white';
-    // eslint-disable-next-line no-restricted-globals
+
     this.posterDate = this.posterParams.has('posterDate')
       ? new Date(
           // eslint-disable-next-line no-restricted-globals
@@ -206,18 +206,13 @@ export class PosterDesignElement extends LitElement {
   onDomChange(event) {
     this.url = new URL(document.location);
     this.posterParams = new URLSearchParams(this.url.search);
-
     // console.log(this.url);
     // console.log(this.posterParams);
+
     const input = event.target || event.srcElement || event.srcElement.html;
     const tmpInput = input.innerText.trim();
-    // console.log(tmpInput.innerHTML);
     // console.log(input.innerText);
-
-    // tmpInput = tmpInput.replace(/<div>/sg, "%0A");
-    // tmpInput = tmpInput.replace(/<\/div>/sg, "")
-    // this.posterParams.set(input.getAttribute('data-property_name'), input.innerHTML.replace(/<!---->/sg, ""));
-
+    // console.log(tmpInput.innerHTML);
     // console.log(tmpInput);
     this.posterParams.set(input.getAttribute('data-property_name'), tmpInput.trim());
     window.history.replaceState({}, 'Updating poster Design', `?${this.posterParams.toString()}`);
