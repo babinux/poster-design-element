@@ -349,7 +349,7 @@ export class PosterDesignElement extends LitElement {
                       .vaadin-text-field-container,
                       .vaadin-text-area-container {
                         font-family: monospace;
-                        opacity: 0;
+                        /* opacity: 0; */
                         position: absolute;
                         width: 100%;
                         height: 100%;
@@ -373,12 +373,27 @@ export class PosterDesignElement extends LitElement {
                   </template>
                 </dom-module>
 
-                <dom-module id="custom-date-picker-overlay" theme-for="vaadin-date-picker-overlay">
+                <dom-module
+                  id="custom-date-picker--toggle-button"
+                  theme-for="vaadin-date-picker vaadin-text-field"
+                >
+                  <template>
+                    <style>
+                      :host,
+                      :host([theme~='custom']) {
+                        background-color: red;
+                      }
+                    </style>
+                  </template>
+                </dom-module>
+
+                <dom-module id="custom-date-picker--overlay" theme-for="vaadin-date-picker-overlay">
                   <template>
                     <style>
                       :host,
                       :host([theme~='custom']) {
                         opacity: 0.95;
+                        background-color: blue;
                       }
                     </style>
                   </template>
