@@ -289,6 +289,7 @@ export class PosterDesignElement extends LitElement {
         #poster-container {
           ${posterScale}
         }
+
         #posterSubtitle{
           ${posterSubtitle}
         }
@@ -335,7 +336,7 @@ export class PosterDesignElement extends LitElement {
                 id="posterDate"
                 data-property_name="posterDate"
                 class="poster-date"
-                contenteditable="true"
+                contenteditable="false"
               >
                 ${this.posterFormatedDate}
 

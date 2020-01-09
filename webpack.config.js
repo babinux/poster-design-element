@@ -36,7 +36,7 @@ const devPlugins = [
             </head>
             <body>
                 <poster-design-element></poster-design-element>
-        
+
                 <script defer src="vendors~index.js"></script>
             </body>
           </html>
@@ -111,7 +111,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        // exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.css|\.s(c|a)ss$/,
