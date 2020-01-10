@@ -60,7 +60,7 @@ export class PosterDesignElement extends LitElement {
         },
       },
       posterFormatedDate: {
-        reflect: true,
+        // reflect: true,
         converter: value => {
           // console.log(`Formated DATE TO ${typeof value}`);
           // console.log(value);
