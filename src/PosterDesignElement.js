@@ -48,17 +48,28 @@ export class PosterDesignElement extends LitElement {
         reflect: true,
       },
       posterDate: {
-        type: Object,
         reflect: true,
-        converter(value) {
-          return new Date(value);
+        converter: value => {
+          // console.log(`DATE TO ${typeof value}`);
+          // console.log(value);
+
+          const userTimezoneOffset = new Date(value).getTimezoneOffset() * 60000;
+          const newPosterDate = new Date(new Date(value).getTime() + userTimezoneOffset);
+
+          return newPosterDate;
         },
       },
       posterFormatedDate: {
-        type: String,
         reflect: true,
-        converter(value) {
-          return new Date(value).toLocaleDateString('en-EN', posterDateSettings);
+        converter: value => {
+          // console.log(`Formated DATE TO ${typeof value}`);
+          // console.log(value);
+          const newPosterFormatedDate = new Date(value).toLocaleDateString(
+            'en-EN',
+            posterDateSettings,
+          );
+          // console.log(newPosterFormatedDate);
+          return newPosterFormatedDate;
         },
       },
       posterPrint: {
@@ -154,10 +165,15 @@ export class PosterDesignElement extends LitElement {
   }
 
   attributeChangedCallback(attr, oldVal, newVal) {
+    super.attributeChangedCallback(attr, oldVal, newVal);
+
     if (attr === 'posterdesign') {
       this.color = posterDarkOrbits.includes(this.posterDesign) ? 'black' : 'white';
     }
-    super.attributeChangedCallback(attr, oldVal, newVal);
+    if (attr === 'posterdate') {
+      this.setAttribute('posterFormatedDate', this.posterDate);
+      // this.posterFormatedDate = this.posterDate;
+    }
     this.updateUrlFromProps();
   }
 
@@ -196,6 +212,7 @@ export class PosterDesignElement extends LitElement {
             : new Date(),
         )
       : new Date();
+
     this.posterFormatedDate = this.posterDate.toLocaleDateString('en-EN', posterDateSettings);
   }
 
@@ -205,6 +222,7 @@ export class PosterDesignElement extends LitElement {
 
     const input = event.target || event.srcElement || event.srcElement.html;
     const tmpInput = input.innerText.trim();
+
     this.posterParams.set(input.getAttribute('data-property_name'), tmpInput.trim());
     window.history.replaceState({}, 'Updating poster Design', `?${this.posterParams.toString()}`);
   }
@@ -212,19 +230,11 @@ export class PosterDesignElement extends LitElement {
   onInputChange(event) {
     const input = event.target || event.srcElement;
 
-    if (input.getAttribute('data-property_name') === 'posterDate') {
-      const userTimezoneOffset = new Date(this.posterDate).getTimezoneOffset() * 60000;
+    this.setAttribute(input.getAttribute('data-property_name'), input.value);
 
-      this[input.getAttribute('data-property_name')] = new Date(
-        new Date(input.value).getTime() + userTimezoneOffset,
-      );
-
-      this.posterFormatedDate = this.posterDate.toLocaleDateString('en-EN', posterDateSettings);
-    } else {
-      this[input.getAttribute('data-property_name')] = input.value;
-    }
-
-    this.updateUrlFromProps();
+    // if (input.getAttribute('data-property_name') === 'posterDate') {
+    //   // this.setAttribute('posterFormatedDate', this.posterDate);
+    // }
   }
 
   getQuadrant() {
