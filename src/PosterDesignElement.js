@@ -147,6 +147,9 @@ export class PosterDesignElement extends LitElement {
   }
 
   updateUrlFromProps() {
+    this.url = new URL(document.location);
+    this.posterParams = new URLSearchParams(this.url.search);
+
     // this.posterParams.set("color", this.color);
     this.posterParams.set('posterPrint', this.posterPrint);
     this.posterParams.set('posterDesign', this.posterDesign);
@@ -178,6 +181,9 @@ export class PosterDesignElement extends LitElement {
   }
 
   updatePropsFromUrl() {
+    this.url = new URL(document.location);
+    this.posterParams = new URLSearchParams(this.url.search);
+
     // console.log(this.url);
 
     this.posterPrint =
