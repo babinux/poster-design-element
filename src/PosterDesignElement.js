@@ -1,7 +1,6 @@
 import { html, LitElement } from 'lit-element';
 
 import '@vaadin/vaadin-date-picker';
-import Sugar from 'sugar';
 
 // Style Import : Main/Current Component Style
 import componentStyle from './style.scss';
@@ -49,11 +48,9 @@ export class PosterDesignElement extends LitElement {
         reflect: true,
       },
       posterDate: {
-        type: String,
+        type: Object,
         reflect: true,
         converter(value) {
-          // console.log(value);
-          // return new Date(value, "YYYY-MM-DD");
           return new Date(value);
         },
       },
@@ -118,13 +115,12 @@ export class PosterDesignElement extends LitElement {
       datepicker.i18n = {
         ...datepicker.i18n,
         formatDate: date =>
-          // console.log("formatDate");
-          // console.log(date);
-          Sugar.Date.format(Sugar.Date.create(date), '{Month} {d}, {year}'),
+          new Date(`${date.year}-${date.month + 1}-${date.day}`).toLocaleDateString(
+            'en-EN',
+            posterDateSettings,
+          ),
         parseDate: dateString => {
-          // console.log("formatTitle");
-
-          const date = Sugar.Date.create(dateString);
+          const date = new Date(dateString);
           return {
             day: date.getDate(),
             month: date.getMonth(),
@@ -206,44 +202,25 @@ export class PosterDesignElement extends LitElement {
   onDomChange(event) {
     this.url = new URL(document.location);
     this.posterParams = new URLSearchParams(this.url.search);
-    // console.log(this.url);
-    // console.log(this.posterParams);
 
     const input = event.target || event.srcElement || event.srcElement.html;
     const tmpInput = input.innerText.trim();
-    // console.log(input.innerText);
-    // console.log(tmpInput.innerHTML);
-    // console.log(tmpInput);
     this.posterParams.set(input.getAttribute('data-property_name'), tmpInput.trim());
     window.history.replaceState({}, 'Updating poster Design', `?${this.posterParams.toString()}`);
   }
 
   onInputChange(event) {
     const input = event.target || event.srcElement;
-    // console.log(input);
-    // console.log(caller.name);
-    // console.log(caller.id);
-    // console.log(input.getAttribute('data-property_name'));
-    // console.log(input.value);
 
     if (input.getAttribute('data-property_name') === 'posterDate') {
-      // console.log(input.getAttribute('data-property_name'));
-      // console.log("+-----+");
+      const userTimezoneOffset = new Date(this.posterDate).getTimezoneOffset() * 60000;
 
-      this[input.getAttribute('data-property_name')] = new Date(input.value);
-      // console.log(this[input.getAttribute('data-property_name')]);
-      // console.log(this.posterDate);
-      // console.log("+++++");
-      // console.log(this.posterFormatedDate);
-      // console.log(this.posterDate);
+      this[input.getAttribute('data-property_name')] = new Date(
+        new Date(input.value).getTime() + userTimezoneOffset,
+      );
 
       this.posterFormatedDate = this.posterDate.toLocaleDateString('en-EN', posterDateSettings);
-
-      // console.log(this.posterFormatedDate);
     } else {
-      // console.log('================== THIS IS THE DATE CHANGE');
-      // console.log(input.getAttribute('data-property_name'));
-      // console.log(input.value);
       this[input.getAttribute('data-property_name')] = input.value;
     }
 
