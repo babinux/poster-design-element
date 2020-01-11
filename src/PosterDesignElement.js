@@ -224,7 +224,7 @@ export class PosterDesignElement extends LitElement {
       : '';
     this.posterLocation = this.posterParams.has('posterLocation')
       ? this.posterParams.get('posterLocation')
-      : 'Amazing Place, World Country';
+      : null;
     this.posterCoordinates = this.posterParams.has('posterCoordinates')
       ? this.posterParams.get('posterCoordinates')
       : '00.00000°N -000.00000°W';
@@ -455,6 +455,7 @@ export class PosterDesignElement extends LitElement {
                   data-property_name="posterLocation"
                   name="bla"
                   class="poster-location"
+                  placeholder="Amazing Place, Country, Location ..."
                   .value="${this.posterLocation}"
                   @input="${this.onInputChange}"
                 />
@@ -463,7 +464,7 @@ export class PosterDesignElement extends LitElement {
                 id="posterCoordinates"
                 data-property_name="posterCoordinates"
                 class="poster-coordinates"
-                contenteditable="true"
+                contenteditable="false"
                 @input="${this.onDomChange}"
               >
                 ${this.posterCoordinates}
