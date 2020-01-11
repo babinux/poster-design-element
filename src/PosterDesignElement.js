@@ -14,6 +14,11 @@ import svgClockQuadrantWhite from './assets/svg/clock-quadrant-white.svg';
 import pngClockQuadrantBlack from './assets/img/clock-quadrant-black.png';
 import pngClockQuadrantWhite from './assets/img/clock-quadrant-white.png';
 
+const GoogleMapsLoader = require('google-maps'); // only for common js environments
+
+GoogleMapsLoader.KEY = 'AIzaSyCq8BCifO8u5oCBMPcbZsh6Q4MySDX-4JQ';
+GoogleMapsLoader.LIBRARIES = ['places'];
+
 // List : All the designs for Poster
 const posterDesigns = [
   '',
@@ -143,7 +148,30 @@ export class PosterDesignElement extends LitElement {
   }
 
   firstUpdated() {
+    // this.googleMapDom = this.shadowRoot.querySelector('#map');
+    this.googleMapDomInput = this.shadowRoot.querySelector('#posterLocation-Input');
+
+    GoogleMapsLoader.load(google => {
+      this.initAutocomplete(google);
+    });
+
     this.updateUrlFromProps();
+  }
+
+  initAutocomplete(google) {
+    const input = this.googleMapDomInput;
+    const searchBox = new google.maps.places.SearchBox(input);
+    searchBox.addListener('places_changed', () => {
+      this.places = searchBox.getPlaces();
+      if (this.places.length === 0) {
+        return;
+      }
+      this.posterLocation = this.places[0].formatted_address;
+      const superman = `${this.places[0].geometry.location
+        .lat()
+        .toFixed(5)}°N, ${this.places[0].geometry.location.lng().toFixed(5)}°W`;
+      this.setAttribute('posterCoordinates', superman);
+    });
   }
 
   updateUrlFromProps() {
@@ -278,7 +306,7 @@ export class PosterDesignElement extends LitElement {
           ${posterScale}
         }
 
-        #posterSubtitle {
+        .poster-subtitle {
           ${posterSubtitle}
         }
       </style>
@@ -421,14 +449,15 @@ export class PosterDesignElement extends LitElement {
                 </vaadin-date-picker>
               </p>
 
-              <p
-                id="posterLocation"
-                data-property_name="posterLocation"
-                class="poster-location"
-                contenteditable="true"
-                @input="${this.onDomChange}"
-              >
-                ${this.posterLocation}
+              <p id="posterLocation" class="poster-location">
+                <input
+                  id="posterLocation-Input"
+                  data-property_name="posterLocation"
+                  name="bla"
+                  class="poster-location"
+                  .value="${this.posterLocation}"
+                  @input="${this.onInputChange}"
+                />
               </p>
               <p
                 id="posterCoordinates"

@@ -46,7 +46,7 @@
             transition: none;
           }
 
-          #posterTitle {
+          .poster-title {
             font-size: 11rem;
             margin-block-start: 0;
             margin-block-end: 3rem;
@@ -56,7 +56,7 @@
             @include editable-content;
           }
 
-          #posterSubtitle {
+          .poster-subtitle {
             font-size: 3.3rem;
             white-space: pre-wrap !important;
             margin-block-start: 0;
@@ -67,16 +67,24 @@
             @include editable-content;
           }
 
-          #posterLocation,
-          #posterCoordinates {
+          .poster-location,
+          .poster-coordinates {
+            border: none;
+            background-image: none;
+            background-color: transparent;
+            box-shadow: none;
+            text-align: center;
+            color: inherit;
+            display: block;
+            width: 100%;
+            padding: 0;
+
             font-size: 3.7rem;
             line-height: 130%;
             margin-block-start: 0;
             margin-block-end: 0;
             font-family: 'Barlow Semi Condensed', sans-serif;
-            // font-size: 0.6rem;
-            // line-height: 110%;
-            // margin: 0;
+
             @include editable-content;
           }
           #posterCoordinates {
