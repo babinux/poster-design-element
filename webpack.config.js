@@ -3,11 +3,10 @@ const path = require('path'),
   webpack = require('webpack'),
   WebpackIndexHTMLPlugin = require('@open-wc/webpack-index-html-plugin'),
   { CleanWebpackPlugin } = require('clean-webpack-plugin'),
-  TerserPlugin = require('terser-webpack-plugin');
+  TerserPlugin = require('terser-webpack-plugin'),
+  CompressionPlugin = require('compression-webpack-plugin');
 
-const CompressionPlugin = require('compression-webpack-plugin');
-
-const htmlTemplate = environmentProduction => `
+const htmlTemplate = isProduction => `
     <!DOCTYPE html>
     <html>
       <head>
@@ -23,7 +22,7 @@ const htmlTemplate = environmentProduction => `
           <poster-design-element></poster-design-element>
 
             ${
-              environmentProduction
+              isProduction
                 ? '<script defer src="vendors~index.js?inProd"></script>'
                 : '<script defer src="vendors~index.js?inDev"></script>'
             }
