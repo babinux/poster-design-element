@@ -22,7 +22,7 @@
     "storybook": "start-storybook --node-resolve --watch --open",
     "storybook:build": "build-storybook",
     "start:build": "cd dist && es-dev-server --open",
-    "build": "webpack --mode=production --progress --info-verbosity"
+    "build": "webpack --mode=production --local --progress --info-verbosity"
   },
   "babel": {
     "plugins": [

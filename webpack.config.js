@@ -38,6 +38,9 @@ module.exports = (env, argv) => {
   console.log(argv.mode);
   process.env.NODE_ENV = argv.mode;
 
+  console.log(argv.local);
+  const localProd = argv.local;
+
   if (process.env.NODE_ENV === 'production') {
     console.log('Looks like we are in Production mode!');
     isProd = true;
@@ -50,20 +53,24 @@ module.exports = (env, argv) => {
   /**
    * Plugins for production environment
    */
-  const prodPlugins = [
-    new CleanWebpackPlugin(),
-    new CompressionPlugin({
-      filename: '[path].br[query]',
-      algorithm: 'brotliCompress',
-      test: /\.(js|css|html|svg)$/,
-      compressionOptions: {
-        level: 11,
-      },
-      threshold: 10240,
-      minRatio: 0.8,
-      deleteOriginalAssets: false ? isProd : !isProd,
-    }),
-  ];
+  let prodPlugins = [new CleanWebpackPlugin()];
+
+  if (!localProd) {
+    prodPlugins = [
+      ...prodPlugins,
+      new CompressionPlugin({
+        filename: '[path].br[query]',
+        algorithm: 'brotliCompress',
+        test: /\.(js|css|html|svg)$/,
+        compressionOptions: {
+          level: 11,
+        },
+        threshold: 10240,
+        minRatio: 0.8,
+        deleteOriginalAssets: false ? isProd : !isProd,
+      }),
+    ];
+  }
 
   /**
    * Plugins for dev environment
