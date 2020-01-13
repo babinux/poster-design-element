@@ -224,7 +224,7 @@ export class PosterDesignElement extends LitElement {
       : '';
     this.posterLocation = this.posterParams.has('posterLocation')
       ? this.posterParams.get('posterLocation')
-      : null;
+      : '';
     this.posterCoordinates = this.posterParams.has('posterCoordinates')
       ? this.posterParams.get('posterCoordinates')
       : '00.00000°N -000.00000°W';
