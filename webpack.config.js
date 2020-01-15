@@ -19,7 +19,7 @@ const htmlTemplate = isProduction => `
         </style>
       </head>
       <body>
-          <poster-design-element></poster-design-element>
+          <poster-design-element id="poster-design-element"></poster-design-element>
 
             ${
               isProduction
