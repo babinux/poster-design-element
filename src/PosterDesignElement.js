@@ -167,10 +167,21 @@ export class PosterDesignElement extends LitElement {
         return;
       }
       this.posterLocation = this.places[0].formatted_address;
-      const superman = `${this.places[0].geometry.location
-        .lat()
-        .toFixed(5)}°N, ${this.places[0].geometry.location.lng().toFixed(5)}°W`;
-      this.setAttribute('posterCoordinates', superman);
+
+      const latitudeNorthSouthSign = this.places[0].geometry.location.lat() > 0 ? 'N' : 'S';
+      const longitudeEastWestSign = this.places[0].geometry.location.lng() > 0 ? 'E' : 'W';
+
+      const latitude =
+        this.places[0].geometry.location.lat() > 0
+          ? this.places[0].geometry.location.lat().toFixed(5)
+          : this.places[0].geometry.location.lat().toFixed(5) * -1;
+      const longitude =
+        this.places[0].geometry.location.lng() > 0
+          ? this.places[0].geometry.location.lng().toFixed(5)
+          : this.places[0].geometry.location.lng().toFixed(5) * -1;
+
+      const coordinates = `${latitude}°${latitudeNorthSouthSign}, ${longitude}°${longitudeEastWestSign}`;
+      this.setAttribute('posterCoordinates', coordinates);
     });
   }
 
@@ -288,7 +299,7 @@ export class PosterDesignElement extends LitElement {
   render() {
     let posterScale;
     if (this.posterPrint) {
-      posterScale = `transform: scale(1.7)!important;`;
+      posterScale = `transform: scale(2.5)!important;`;
     } else {
       posterScale = `transform: scale(0.2)!important;`;
     }
@@ -303,7 +314,11 @@ export class PosterDesignElement extends LitElement {
     const styleString = html`
       <style>
         #poster-container {
+          transform-origin: left top;
           ${posterScale}
+        }
+        #poster {
+          position: absolute;
         }
 
         .poster-subtitle {
