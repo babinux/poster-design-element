@@ -335,7 +335,11 @@ export class PosterDesignElement extends LitElement {
           <div class="poster-grid">
             <div id="" class="starry-design-wrapper">
               <div id="starry-quadrent" class="starry-quadrent">
-                <img class="poster-quadrent-calendar-astro" src="${this.getQuadrant()}" />
+                <img
+                  class="poster-quadrent-calendar-astro"
+                  src="${this.getQuadrant()}"
+                  loading="lazy"
+                />
 
                 <div class="svghtml-embed">
                   <planet-clock-element color="${this.color}" .posterDate="${this.posterDate}">
