@@ -339,6 +339,7 @@ export class PosterDesignElement extends LitElement {
                   class="poster-quadrent-calendar-astro"
                   src="${this.getQuadrant()}"
                   loading="lazy"
+                  alt="Poster Quadrent Clock"
                 />
 
                 <div class="svghtml-embed">
