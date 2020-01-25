@@ -223,10 +223,19 @@ module.exports = (env, argv) => {
           use: ['file-loader'],
         },
         {
-          test: /\.(svg|png)$/,
+          test: /\.(svg)$/,
           use: [
             {
               loader: 'svg-url-loader',
+              options: {},
+            },
+          ],
+        },
+        {
+          test: /\.(png)$/,
+          use: [
+            {
+              loader: 'url-loader',
               options: {},
             },
           ],
