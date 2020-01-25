@@ -240,10 +240,10 @@ module.exports = (env, argv) => {
             },
           ],
         },
-        {
-          test: /\.(png|jpg|gif|svg)$/,
-          use: ['file-loader'],
-        },
+        // {
+        //   test: /\.(png|jpg|gif|svg)$/,
+        //   use: ['file-loader'],
+        // },
       ],
     },
     plugins: pluginList,
