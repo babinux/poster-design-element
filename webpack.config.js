@@ -205,23 +205,35 @@ module.exports = (env, argv) => {
             'sass-loader',
           ],
         },
-
         {
-          test: /\.(png|jpg|gif|svg)$/,
-          use: ['file-loader'],
+          // Match woff2 and patterns like .woff?v=1.1.1.
+          test: /\.woff2?(\?v=\d+\.\d+\.\d+)?$/,
+          use: {
+            loader: 'url-loader',
+            options: {
+              limit: 50000,
+              mimetype: 'application/font-woff',
+              name: './fonts/[name].[ext]', // Output below ./fonts
+              publicPath: '../', // Take the directory into account
+            },
+          },
         },
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/,
           use: ['file-loader'],
         },
         {
-          test: /\.svg$/,
+          test: /\.(svg|png)$/,
           use: [
             {
               loader: 'svg-url-loader',
               options: {},
             },
           ],
+        },
+        {
+          test: /\.(png|jpg|gif|svg)$/,
+          use: ['file-loader'],
         },
       ],
     },
