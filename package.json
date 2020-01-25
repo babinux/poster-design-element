@@ -8,7 +8,7 @@
   "module": "index.js",
   "scripts": {
     "serve:dev": "webpack-dev-server  --mode=development  --node-resolve  --progress --info-verbosity verbose --open --watch",
-    "build:prod": "webpack --mode=production --local --progress --info-verbosity && netlify-lambda install ./src/functions-lambda/ && netlify-lambda build --timeout=60 --config ./webpack.functions.js ./src/functions-lambda/",
+    "build:prod": "webpack --mode=production --local --progress --info-verbosity && netlify-lambda install ./src/functions-lambda/ ",
     "serve:prod": "cd dist && es-dev-server --open",
     "install:lambda": "netlify-lambda install ./src/functions-lambda/",
     "build:lambda": "netlify-lambda build --timeout=60 --config  ./webpack.functions.js ./src/functions-lambda/",

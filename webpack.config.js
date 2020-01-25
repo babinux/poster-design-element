@@ -214,15 +214,15 @@ module.exports = (env, argv) => {
           test: /\.(woff|woff2|eot|ttf|otf)$/,
           use: ['file-loader'],
         },
-        // {
-        //   test: /\.svg$/,
-        //   use: [
-        //     {
-        //       loader: 'svg-url-loader',
-        //       options: {},
-        //     },
-        //   ],
-        // },
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: 'svg-url-loader',
+              options: {},
+            },
+          ],
+        },
       ],
     },
     plugins: pluginList,
